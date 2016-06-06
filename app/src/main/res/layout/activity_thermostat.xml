@@ -1,4 +1,5 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="/res/com.devadvance.circulartest"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -9,8 +10,8 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context=".ThermostatActivity"
-    android:weightSum="1">
+    android:weightSum="1"
+    tools:context=".ThermostatActivity">
 
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
@@ -51,46 +52,64 @@
         android:textColor="#ffffff"
         android:textSize="30dp" />
 
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        android:layout_width="match_parent"
+
+    <FrameLayout
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content">
 
-        <ImageView
-            android:id="@+id/bMinus"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:layout_gravity="left"
-            android:src="@drawable/minus_button" />
+        <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="300dp"
+            android:layout_height="300dp">
 
-        <TextView
-            android:id="@+id/temp"
+        <nl.tue.demothermostat.circularseekbar.CircularSeekBar
+            android:id="@+id/circularSeekBar1"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:text="21"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:textColor="#ffffff"
-            android:textSize="30dp" />
+            android:layout_height="wrap_content" />
 
-        <ImageView
-            android:id="@+id/bPlus"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:layout_gravity="right"
-            android:src="@drawable/add_button" />
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
 
+            <ImageView
+                android:id="@+id/bMinus"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
 
-    </LinearLayout>
+                android:src="@drawable/minus_button"
+                android:layout_gravity="center_vertical"
+                android:layout_centerVertical="true"
+                android:layout_toStartOf="@+id/temp"
+                android:layout_marginEnd="42dp" />
 
-    <SeekBar
-        android:id="@+id/seekBar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:indeterminate="false"
-        android:max="30"
-        android:progressTint="#336699"
-        android:thumbTint="#336699" />
+            <TextView
+                android:id="@+id/temp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="21"
+                android:gravity="center"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textColor="#ffffff"
+                android:textSize="30dp"
+                android:layout_gravity="center_vertical"
+                android:layout_alignTop="@+id/bPlus"
+                android:layout_centerHorizontal="true" />
+
+            <ImageView
+                android:id="@+id/bPlus"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+
+                android:src="@drawable/add_button"
+                android:layout_gravity="center_vertical"
+                android:layout_alignTop="@+id/bMinus"
+                android:layout_toEndOf="@+id/temp"
+                android:layout_marginStart="33dp" />
+
+            </RelativeLayout>
+        </RelativeLayout>
+
+    </FrameLayout>
+
 
     <Button
         android:id="@+id/week_overview"
@@ -106,46 +125,46 @@
         android:text="Testing Web Service" />
 
     <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Set Temp"
         android:id="@+id/sTemp"
-        android:layout_gravity="center_horizontal" />
-
-    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="DayTemp"
+        android:layout_gravity="center_horizontal"
+        android:text="Set Temp" />
+
+    <TextView
         android:id="@+id/dayTemp"
-        android:layout_gravity="center_horizontal"
-        android:background="#ffffff" />
-
-    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Display Day Temp"
+        android:layout_gravity="center_horizontal"
+        android:background="#ffffff"
+        android:text="DayTemp"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <TextView
         android:id="@+id/dDayTemp"
-        android:layout_gravity="center_horizontal"
-        android:background="#ffffff" />
-
-    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="NightTemp"
+        android:layout_gravity="center_horizontal"
+        android:background="#ffffff"
+        android:text="Display Day Temp"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <TextView
         android:id="@+id/nightTemp"
-        android:layout_gravity="center_horizontal"
-        android:background="#ffffff" />
-
-    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Display Night Temp"
-        android:id="@+id/dNightTemp"
         android:layout_gravity="center_horizontal"
-        android:background="#ffffff" />
+        android:background="#ffffff"
+        android:text="NightTemp"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <TextView
+        android:id="@+id/dNightTemp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:background="#ffffff"
+        android:text="Display Night Temp"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
 
 </LinearLayout>
