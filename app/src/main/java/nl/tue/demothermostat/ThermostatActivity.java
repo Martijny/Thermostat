@@ -20,6 +20,7 @@ public class ThermostatActivity extends Activity {
     String setSwitch;
     double dayTemp;
     double nightTemp;
+    double tits;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
