@@ -1,43 +1,71 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="horizontal" android:layout_width="match_parent"
+<GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
     android:background="#000000"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:rowCount="35"
+    android:columnCount="25">
 
     <Button
         style="@style/button"
         android:layout_height="wrap_content"
-        android:text="Day 1"
-        android:layout_gravity="center_horizontal" />
+        android:text="MONDAY"
+        android:layout_gravity="center|top"
+        android:layout_weight="1"
+        android:textSize="12dp"
+        android:layout_row="0"
+        android:layout_column="0" />
 
     <Button
         style="@style/button"
         android:layout_height="wrap_content"
-        android:text="Day 2"
-        android:layout_gravity="center_horizontal" />
+        android:text="TUESDAY"
+        android:layout_gravity="center|top"
+        android:layout_weight="1"
+        android:textSize="12dp"
+        android:layout_row="0"
+        android:layout_column="1" />
+
     <Button
         style="@style/button"
         android:layout_height="wrap_content"
-        android:text="Day 3"
-        android:layout_gravity="center_horizontal" />
+        android:text="WEDNESDAY"
+        android:layout_gravity="center|top"
+        android:layout_weight="1"
+        android:textSize="12dp"
+        android:layout_row="0"
+        android:layout_column="2" />
+
     <Button
         style="@style/button"
         android:layout_height="wrap_content"
-        android:text="Day 4"
-        android:layout_gravity="center_horizontal" />
+        android:text="THURSDAY"
+        android:layout_gravity="center|top"
+        android:layout_weight="1"
+        android:textSize="12dp"
+        android:layout_row="0"
+        android:layout_column="3" />
+
     <Button
         style="@style/button"
         android:layout_height="wrap_content"
-        android:text="Day 5"
-        android:layout_gravity="center_horizontal" />
+        android:text="FRIDAY"
+        android:layout_gravity="center|top"
+        android:layout_weight="1"
+        android:textSize="12dp"
+        android:layout_row="0"
+        android:layout_column="4" />
+
     <Button
         style="@style/button"
         android:layout_height="wrap_content"
-        android:text="Day 6"
-        android:layout_gravity="center_horizontal" />
-    <Button
-        style="@style/button"
-        android:layout_height="wrap_content"
-        android:text="Day 7"
-        android:layout_gravity="center_horizontal" />
-</LinearLayout>
+        android:text="SUNDAY"
+        android:layout_gravity="center|top"
+        android:layout_weight="1"
+        android:textSize="12dp"
+        android:layout_row="0"
+        android:layout_column="8"
+        android:layout_width="wrap_content"
+        android:id="@+id/button" />
+
+</GridLayout>
