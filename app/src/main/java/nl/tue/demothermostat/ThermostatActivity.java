@@ -8,6 +8,12 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import nl.tue.demothermostat.serverTemp;
+
+import org.thermostatapp.util.HeatingSystem;
+import org.thermostatapp.util.Switch;
+import org.thermostatapp.util.WeekProgram;
+
 import nl.tue.demothermostat.circularseekbar.CircularSeekBar;
 
 public class ThermostatActivity extends Activity {
@@ -21,12 +27,13 @@ public class ThermostatActivity extends Activity {
     String setSwitch;
     double dayTemp;
     double nightTemp;
-    double tits;
+    serverTemp ST;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_thermostat);
+        ST = new serverTemp();
 
         dDayTemp = (TextView)findViewById(R.id.dDayTemp);
         dNightTemp = (TextView)findViewById(R.id.dNightTemp);
@@ -56,7 +63,46 @@ public class ThermostatActivity extends Activity {
             }
         });
 
-
+        bPlus.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                vtemp = (Double.parseDouble(temp.getText().toString())+0.1);
+                temp.setText(String.format("%.1f", vtemp));
+                seekbar.setProgress((int) (vtemp * 10));
+            }
+        });
+        bMinus.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                vtemp = (Double.parseDouble(temp.getText().toString())-0.1);
+                temp.setText(String.format( "%.1f", vtemp ));
+                seekbar.setProgress((int)(vtemp*10));
+            }
+        });
+        bleft.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(setTemp.getText().equals("Day")){
+                    setTemp.setText("Night");
+                    setSwitch = "Night";
+                }else{
+                    setTemp.setText("Day");
+                    setSwitch = "Day";
+                }
+            }
+        });
+        bright.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(setTemp.getText().equals("Day")){
+                    setTemp.setText("Night");
+                    setSwitch = "Night";
+                }else{
+                    setTemp.setText("Day");
+                    setSwitch = "Day";
+                }
+            }
+        });
         sTemp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

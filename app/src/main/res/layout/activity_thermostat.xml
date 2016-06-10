@@ -61,19 +61,6 @@
 
 
     <Button
-        android:id="@+id/week_overview"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:text="Week Overview" />
-
-    <Button
-        android:id="@+id/testing_ws"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Testing Web Service" />
-
-    <Button
         android:id="@+id/sTemp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
