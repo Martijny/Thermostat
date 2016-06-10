@@ -13,36 +13,6 @@
     android:weightSum="1"
     tools:context=".ThermostatActivity">
 
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <ImageView
-            android:id="@+id/bleft"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:layout_gravity="left"
-            android:src="@drawable/minus_button" />
-
-        <TextView
-            android:id="@+id/setTemp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:text="Day"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:textColor="#ffffff"
-            android:textSize="30dp" />
-
-        <ImageView
-            android:id="@+id/bright"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:layout_gravity="right"
-            android:src="@drawable/add_button" />
-
-    </LinearLayout>
-
     <TextView
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
@@ -110,19 +80,6 @@
 
     </FrameLayout>
 
-
-    <Button
-        android:id="@+id/week_overview"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:text="Week Overview" />
-
-    <Button
-        android:id="@+id/testing_ws"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Testing Web Service" />
 
     <Button
         android:id="@+id/sTemp"
