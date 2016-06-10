@@ -41,14 +41,14 @@ public class ThermostatActivity extends Activity {
         seekbar.setMax(250);
 
         temp = (TextView)findViewById(R.id.temp);
-        temp.setText("5.0"+"\u2103");
+        temp.setText(""+vtemp);
         Button sTemp = (Button)findViewById(R.id.sTemp);
 
         sTemp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 try {
-                    ST.setTemp(""+vtemp);
+                    ST.setTemp(temp.getText().toString());
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
@@ -76,9 +76,10 @@ public class ThermostatActivity extends Activity {
     public class CircleSeekBarListener implements CircularSeekBar.OnCircularSeekBarChangeListener {
         @Override
         public void onProgressChanged(CircularSeekBar circularSeekBar, int progress, boolean fromUser) {
-            vtemp = (progress * 0.1);
-            temp.setText(String.format("%.1f", vtemp));
+            csbTemp = round(((progress*0.1) + vtemp),2);
+            temp.setText(""+csbTemp);
         }
+
 
         @Override
         public void onStopTrackingTouch(CircularSeekBar seekBar) {
