@@ -76,8 +76,8 @@ public class ThermostatActivity extends Activity {
     public class CircleSeekBarListener implements CircularSeekBar.OnCircularSeekBarChangeListener {
         @Override
         public void onProgressChanged(CircularSeekBar circularSeekBar, int progress, boolean fromUser) {
-            csbTemp = round(((progress*0.1) + vtemp),2);
-            temp.setText(""+csbTemp+ " \u2103");
+            vtemp = (progress * 0.1);
+            temp.setText(String.format("%.1f", vtemp));
         }
 
         @Override
