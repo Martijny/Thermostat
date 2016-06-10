@@ -47,12 +47,16 @@ public class ThermostatActivity extends Activity {
         sTemp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(setTemp.getText().equals("Day")) {
-                    dayTemp = Double.parseDouble(temp.getText().toString());
-                    dDayTemp.setText(""+dayTemp);
-                }else if(setTemp.getText().equals("Night")){
-                    nightTemp = Double.parseDouble(temp.getText().toString());
-                    dNightTemp.setText(""+nightTemp);
+                try {
+                    ST.setTemp(""+vtemp);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+
+                try {
+                    dDayTemp.setText(ST.getData());
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
                 }
             }
         });
