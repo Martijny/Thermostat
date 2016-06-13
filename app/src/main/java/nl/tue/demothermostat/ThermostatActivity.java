@@ -25,10 +25,13 @@ public class ThermostatActivity extends Activity {
     TextView dDayTemp;
     TextView dNightTemp;
     Button weekButton;
+    Button minusB;
+    Button addB;
     String setSwitch;
     double dayTemp;
     double nightTemp;
     serverTemp ST;
+    boolean isButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,12 +48,21 @@ public class ThermostatActivity extends Activity {
         temp = (TextView)findViewById(R.id.temp);
         temp.setText("" + vtemp);
         Button sTemp = (Button)findViewById(R.id.sTemp);
+        minusB = (Button)findViewById(R.id.minusB);
+        addB = (Button)findViewById(R.id.addB);
 
         weekButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(view.getContext(), WeekOverview.class);
                 startActivity(intent);
+        }});
+
+        minusB.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                isButton = true;
+                seekbar.setProgress(14);
         }});
 
         sTemp.setOnClickListener(new View.OnClickListener() {
