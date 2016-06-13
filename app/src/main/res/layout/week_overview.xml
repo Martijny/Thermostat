@@ -19,14 +19,16 @@
             android:layout_alignParentTop="true"
             android:layout_weight="1"
             android:background = "@drawable/roundedbutton"
-            android:id="@+id/button2" />
+            android:id="@+id/mondayB"
+            android:clickable="true"
+            android:enabled="true" />
 
         <Button
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:text="T"
-            android:id="@+id/button3"
-            android:layout_toRightOf="@+id/button2"
+            android:id="@+id/tuesdayB"
+            android:layout_toRightOf="@+id/mondayB"
             android:layout_alignParentTop="true"
             android:layout_weight="1"
             android:background = "@drawable/roundedbutton"/>
@@ -35,9 +37,9 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:text="W"
-            android:id="@+id/button4"
+            android:id="@+id/wednesdayB"
             android:layout_alignParentTop="true"
-            android:layout_toRightOf="@+id/button3"
+            android:layout_toRightOf="@+id/tuesdayB"
             android:layout_weight="1"
             android:background = "@drawable/roundedbutton"/>
 
@@ -45,9 +47,9 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:text="T"
-            android:id="@+id/button5"
+            android:id="@+id/thursdayB"
             android:layout_alignParentTop="true"
-            android:layout_toRightOf="@+id/button4"
+            android:layout_toRightOf="@+id/wednesdayB"
             android:layout_weight="1"
             android:background = "@drawable/roundedbutton"/>
 
@@ -55,9 +57,9 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:text="F"
-            android:id="@+id/button6"
+            android:id="@+id/fridayB"
             android:layout_alignParentTop="true"
-            android:layout_toRightOf="@+id/button5"
+            android:layout_toRightOf="@+id/thursdayB"
             android:layout_weight="1"
             android:background = "@drawable/roundedbutton"/>
 
@@ -65,9 +67,9 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:text="S"
-            android:id="@+id/button7"
+            android:id="@+id/saturdayB"
             android:layout_alignParentTop="true"
-            android:layout_toRightOf="@+id/button6"
+            android:layout_toRightOf="@+id/fridayB"
             android:layout_weight="1"
             android:background = "@drawable/roundedbutton"/>
 
@@ -75,9 +77,9 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:text="S"
-            android:id="@+id/button8"
+            android:id="@+id/sundayB"
             android:layout_alignParentTop="true"
-            android:layout_toRightOf="@+id/button7"
+            android:layout_toRightOf="@+id/saturdayB"
             android:layout_weight="1"
             android:background = "@drawable/roundedbutton"/>
     </LinearLayout>
