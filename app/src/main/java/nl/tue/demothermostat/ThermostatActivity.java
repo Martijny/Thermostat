@@ -41,100 +41,28 @@ public class ThermostatActivity extends Activity {
         seekbar.setMax(250);
 
         temp = (TextView)findViewById(R.id.temp);
-        temp.setText("5.0"+"\u2103");
-        Button weekOverview = (Button)findViewById(R.id.week_overview);
+        temp.setText(""+vtemp);
         Button sTemp = (Button)findViewById(R.id.sTemp);
 
-        weekOverview.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(view.getContext(), WeekOverview.class);
-                startActivity(intent);
-            }
-        });
-
-        Button testingWS = (Button)findViewById(R.id.testing_ws);
-
-        testingWS.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(view.getContext(), TestingWS.class);
-                startActivity(intent);
-            }
-        });
-
-        bPlus.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                vtemp = (Double.parseDouble(temp.getText().toString())+0.1);
-                temp.setText(String.format("%.1f", vtemp));
-                seekbar.setProgress((int) (vtemp * 10));
-            }
-        });
-        bMinus.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                vtemp = (Double.parseDouble(temp.getText().toString())-0.1);
-                temp.setText(String.format( "%.1f", vtemp ));
-                seekbar.setProgress((int)(vtemp*10));
-            }
-        });
-        bleft.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if(setTemp.getText().equals("Day")){
-                    setTemp.setText("Night");
-                    setSwitch = "Night";
-                }else{
-                    setTemp.setText("Day");
-                    setSwitch = "Day";
-                }
-            }
-        });
-        bright.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if(setTemp.getText().equals("Day")){
-                    setTemp.setText("Night");
-                    setSwitch = "Night";
-                }else{
-                    setTemp.setText("Day");
-                    setSwitch = "Day";
-                }
-            }
-        });
         sTemp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(setTemp.getText().equals("Day")) {
-                    dayTemp = Double.parseDouble(temp.getText().toString());
-                    dDayTemp.setText(""+dayTemp);
-                }else if(setTemp.getText().equals("Night")){
-                    nightTemp = Double.parseDouble(temp.getText().toString());
-                    dNightTemp.setText(""+nightTemp);
+                try {
+                    ST.setTemp(temp.getText().toString());
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+
+                try {
+                    dDayTemp.setText(ST.getData());
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
                 }
             }
         });
         seekbar.setOnSeekBarChangeListener(new CircleSeekBarListener());
 
     }
-
-    //        bPlus.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                vtemp = round((Double.parseDouble(temp.getText().toString())+0.1),2);
-//                temp.setText(""+vtemp);
-//                //seekbar.setProgress((int)(vtemp * 10));
-//            }
-//        });
-//        bMinus.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                vtemp = round((Double.parseDouble(temp.getText().toString())-0.1),2);
-//                temp.setText(""+vtemp);
-//                //seekbar.setProgress((int)(vtemp * 10));
-//            }
-//        });
 
     public static double round(double value, int places) {
         if (places < 0) throw new IllegalArgumentException();
@@ -149,8 +77,9 @@ public class ThermostatActivity extends Activity {
         @Override
         public void onProgressChanged(CircularSeekBar circularSeekBar, int progress, boolean fromUser) {
             csbTemp = round(((progress*0.1) + vtemp),2);
-            temp.setText(""+csbTemp+ " \u2103");
+            temp.setText(""+csbTemp);
         }
+
 
         @Override
         public void onStopTrackingTouch(CircularSeekBar seekBar) {
@@ -164,27 +93,3 @@ public class ThermostatActivity extends Activity {
     }
 }
 
-//        bleft.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                if(setTemp.getText().equals("Day")){
-//                    setTemp.setText("Night");
-//                    setSwitch = "Night";
-//                }else{
-//                    setTemp.setText("Day");
-//                    setSwitch = "Day";
-//                }
-//            }
-//        });
-//        bright.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                if(setTemp.getText().equals("Day")){
-//                    setTemp.setText("Night");
-//                    setSwitch = "Night";
-//                }else{
-//                    setTemp.setText("Day");
-//                    setSwitch = "Day";
-//                }
-//            }
-//        });
