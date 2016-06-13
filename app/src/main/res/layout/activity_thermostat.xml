@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#000000"
+    android:background="#b3b3ff"
     android:gravity="center_horizontal"
     android:orientation="vertical"
     android:paddingBottom="@dimen/activity_vertical_margin"
@@ -13,44 +13,15 @@
     android:weightSum="1"
     tools:context=".ThermostatActivity">
 
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <ImageView
-            android:id="@+id/bleft"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:layout_gravity="left"
-            android:src="@drawable/minus_button" />
-
-        <TextView
-            android:id="@+id/setTemp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:text="Day"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:textColor="#ffffff"
-            android:textSize="30dp" />
-
-        <ImageView
-            android:id="@+id/bright"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:layout_gravity="right"
-            android:src="@drawable/add_button" />
-
-    </LinearLayout>
-
     <TextView
         android:id="@+id/textView2"
+        android:typeface="monospace"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Current Temperature"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:textColor="#ffffff"
-        android:textSize="30dp" />
+        android:textColor="#000000"
+        android:textSize="25dp" />
 
 
     <FrameLayout
@@ -70,59 +41,24 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
-            <ImageView
-                android:id="@+id/bMinus"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-
-                android:src="@drawable/minus_button"
-                android:layout_gravity="center_vertical"
-                android:layout_centerVertical="true"
-                android:layout_toStartOf="@+id/temp"
-                android:layout_marginEnd="42dp" />
-
-            <TextView
+                <TextView
                 android:id="@+id/temp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="21"
+                    android:typeface="serif"
                 android:gravity="center"
                 android:textAppearance="?android:attr/textAppearanceLarge"
-                android:textColor="#ffffff"
-                android:textSize="30dp"
+                android:textColor="#000000"
+                android:textSize="70dp"
                 android:layout_gravity="center_vertical"
-                android:layout_alignTop="@+id/bPlus"
-                android:layout_centerHorizontal="true" />
-
-            <ImageView
-                android:id="@+id/bPlus"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-
-                android:src="@drawable/add_button"
-                android:layout_gravity="center_vertical"
-                android:layout_alignTop="@+id/bMinus"
-                android:layout_toEndOf="@+id/temp"
-                android:layout_marginStart="33dp" />
+                    android:layout_centerHorizontal="true"
+                    android:layout_centerVertical="true" />
 
             </RelativeLayout>
         </RelativeLayout>
 
     </FrameLayout>
 
-
-    <Button
-        android:id="@+id/week_overview"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:text="Week Overview" />
-
-    <Button
-        android:id="@+id/testing_ws"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Testing Web Service" />
 
     <Button
         android:id="@+id/sTemp"

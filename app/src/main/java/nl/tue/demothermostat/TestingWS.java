@@ -42,7 +42,6 @@ public class TestingWS extends Activity {
 
             @Override
             public void onClick(View v) {
-                // TODO Auto-generated method stub
                 new Thread(new Runnable() {
                     @Override
                     public void run() {
@@ -79,7 +78,7 @@ public class TestingWS extends Activity {
             @Override
             public void onClick(View v) {
                 // TODO Auto-generated method stub
-                new Thread(new Runnable() {
+                 new Thread(new Runnable() {
                     @Override
                     public void run() {
                         try {

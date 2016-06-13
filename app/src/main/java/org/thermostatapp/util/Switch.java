@@ -32,23 +32,6 @@ public class Switch {
                 + (int) ((float) back_int / 60.0 * 100.0);
     }
 
-    /*
-     * Constructor
-     * @param type
-     * @param state
-     * @param time
-     * @param time_int
-     * @param dur
-
-    public Switch(String type, boolean state, String time, int time_int, int dur) {
-        this.type = type;
-        this.state = state;
-        this.time = time;
-        this.time_int = time_int;
-        this.dur = dur;
-    }
-*/
-    /** GET Methods */
 
     public String getType() {
         return this.type;
