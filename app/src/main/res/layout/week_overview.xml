@@ -1,12 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-<<<<<<< HEAD
-<GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:background="#000000"
-    android:layout_height="match_parent"
-    android:rowCount="35"
-    android:columnCount="25">
-=======
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="fill_parent"
@@ -14,59 +6,10 @@
     tools:context="org.thermostatapp.util.Week1"
     android:background="@android:color/background_light"
     android:weightSum="7">
->>>>>>> master
 
     <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-<<<<<<< HEAD
-        android:text="MONDAY"
-        android:layout_gravity="center|top"
-        android:layout_weight="1"
-        android:textSize="12dp"
-        android:layout_row="0"
-        android:layout_column="0" />
-
-    <Button
-        style="@style/button"
-        android:layout_height="wrap_content"
-        android:text="TUESDAY"
-        android:layout_gravity="center|top"
-        android:layout_weight="1"
-        android:textSize="12dp"
-        android:layout_row="0"
-        android:layout_column="1" />
-
-    <Button
-        style="@style/button"
-        android:layout_height="wrap_content"
-        android:text="WEDNESDAY"
-        android:layout_gravity="center|top"
-        android:layout_weight="1"
-        android:textSize="12dp"
-        android:layout_row="0"
-        android:layout_column="2" />
-
-    <Button
-        style="@style/button"
-        android:layout_height="wrap_content"
-        android:text="THURSDAY"
-        android:layout_gravity="center|top"
-        android:layout_weight="1"
-        android:textSize="12dp"
-        android:layout_row="0"
-        android:layout_column="3" />
-
-    <Button
-        style="@style/button"
-        android:layout_height="wrap_content"
-        android:text="FRIDAY"
-        android:layout_gravity="center|top"
-        android:layout_weight="1"
-        android:textSize="12dp"
-        android:layout_row="0"
-        android:layout_column="4" />
-=======
         android:id="@+id/linearLayout"
         android:background="#ffffff">
         <Button
@@ -147,23 +90,10 @@
         android:layout_alignParentBottom="true"
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true" />
->>>>>>> master
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-<<<<<<< HEAD
-        android:text="SUNDAY"
-        android:layout_gravity="center|top"
-        android:layout_weight="1"
-        android:textSize="12dp"
-        android:layout_row="0"
-        android:layout_column="8"
-        android:layout_width="wrap_content"
-        android:id="@+id/button" />
-
-</GridLayout>
-=======
         android:text="Edit Schedule"
         android:id="@+id/button10"
         android:layout_above="@+id/button9"
@@ -171,4 +101,3 @@
         android:layout_alignParentEnd="true" />
 
 </RelativeLayout>
->>>>>>> master

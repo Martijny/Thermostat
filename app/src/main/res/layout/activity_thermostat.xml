@@ -94,6 +94,13 @@
         android:text="NightTemp"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Go Week"
+        android:id="@+id/weekB"
+        android:layout_gravity="right" />
+
     <TextView
         android:id="@+id/dNightTemp"
         android:layout_width="wrap_content"

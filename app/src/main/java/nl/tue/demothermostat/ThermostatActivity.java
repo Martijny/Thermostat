@@ -24,6 +24,7 @@ public class ThermostatActivity extends Activity {
     TextView setTemp;
     TextView dDayTemp;
     TextView dNightTemp;
+    Button weekButton;
     String setSwitch;
     double dayTemp;
     double nightTemp;
@@ -37,12 +38,19 @@ public class ThermostatActivity extends Activity {
 
         dDayTemp = (TextView)findViewById(R.id.dDayTemp);
         dNightTemp = (TextView)findViewById(R.id.dNightTemp);
+        weekButton = (Button)findViewById(R.id.weekB);
         final CircularSeekBar seekbar = (CircularSeekBar) findViewById(R.id.circularSeekBar1);
         seekbar.setMax(250);
 
         temp = (TextView)findViewById(R.id.temp);
-        temp.setText(""+vtemp);
+        temp.setText("" + vtemp);
         Button sTemp = (Button)findViewById(R.id.sTemp);
+
+        weekButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                new Intent(activity_week1);
+        }});
 
         sTemp.setOnClickListener(new View.OnClickListener() {
             @Override
