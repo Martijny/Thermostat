@@ -7,8 +7,6 @@ import org.thermostatapp.util.WeekProgram;
 public class serverTemp {
     String currentTemperature;
 
-
-
     public String getData() throws InterruptedException {
         Thread t = new Thread(new Runnable() {
             @Override

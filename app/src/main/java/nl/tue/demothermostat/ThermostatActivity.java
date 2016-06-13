@@ -62,8 +62,19 @@ public class ThermostatActivity extends Activity {
             @Override
             public void onClick(View view) {
                 isButton = true;
-                seekbar.setProgress(14);
+                vtemp = round(Double.parseDouble(temp.getText().toString())-0.1,2);
+                temp.setText(""+vtemp);
+                seekbar.setProgress((int)(Double.parseDouble(temp.getText().toString())*10)-50);
         }});
+
+        addB.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                isButton = true;
+                vtemp = round(Double.parseDouble(temp.getText().toString())+0.1,2);
+                temp.setText(""+vtemp);
+                seekbar.setProgress((int) (Double.parseDouble(temp.getText().toString())*10)-50);
+            }});
 
         sTemp.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -97,8 +108,12 @@ public class ThermostatActivity extends Activity {
     public class CircleSeekBarListener implements CircularSeekBar.OnCircularSeekBarChangeListener {
         @Override
         public void onProgressChanged(CircularSeekBar circularSeekBar, int progress, boolean fromUser) {
-            csbTemp = round(((progress*0.1) + vtemp),2);
-            temp.setText(""+csbTemp);
+            if(!isButton) {
+                Double tempTemp = 5.0;
+                csbTemp = round(((progress * 0.1)+tempTemp), 2);
+                temp.setText("" + csbTemp);
+            }
+            isButton = false;
         }
 
 
