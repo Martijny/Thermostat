@@ -49,7 +49,8 @@ public class ThermostatActivity extends Activity {
         weekButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                new Intent(activity_week1);
+                Intent intent = new Intent(view.getContext(), WeekOverview.class);
+                startActivity(intent);
         }});
 
         sTemp.setOnClickListener(new View.OnClickListener() {
