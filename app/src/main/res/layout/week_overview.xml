@@ -16,10 +16,10 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:text="M"
-            android:id="@+id/button2"
             android:layout_alignParentTop="true"
             android:layout_weight="1"
-            android:background = "@drawable/roundedbutton"/>
+            android:background = "@drawable/roundedbutton"
+            android:id="@+id/button2" />
 
         <Button
             android:layout_width="0dp"
