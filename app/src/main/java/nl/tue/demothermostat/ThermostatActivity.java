@@ -73,26 +73,59 @@ public class ThermostatActivity extends Activity {
                     seekbar.setProgress((int) (Double.parseDouble(temp.getText().toString()) * 10) - 50);
                 }
             }});
-
-//        sTemp.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                try {
-//                    ST.setTemp(temp.getText().toString());
-//                } catch (InterruptedException e) {
-//                    e.printStackTrace();
-//                }
-//
-//                try {
-//                    dDayTemp.setText(ST.getData());
-//                    //dNightTemp.setText(ST.getData());
-//                } catch (InterruptedException e) {
-//                    e.printStackTrace();
-//                }
-//            }
-//        });
         seekbar.setOnSeekBarChangeListener(new CircleSeekBarListener());
         this.getActionBar().hide();
+
+        Thread t = new Thread() {
+
+            @Override
+            public void run() {
+                try {
+                    while (!isInterrupted()) {
+                        Thread.sleep(250);
+                        runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                try {
+                                    serverTime.setText(ST.getTime());
+                                    //dNightTemp.setText(ST.getData());
+                                } catch (InterruptedException e) {
+                                    e.printStackTrace();
+                                }
+                            }
+                        });
+                    }
+                } catch (InterruptedException e) {
+                }
+            }
+        };
+        t.start();
+
+        Thread t1 = new Thread() {
+
+            @Override
+            public void run() {
+                try {
+                    while (!isInterrupted()) {
+                        Thread.sleep(250);
+                        runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                try {
+                                    dDayTemp.setText(ST.getData());
+                                    //dNightTemp.setText(ST.getData());
+                                } catch (InterruptedException e) {
+                                    e.printStackTrace();
+                                }
+                            }
+                        });
+                    }
+                } catch (InterruptedException e) {
+                }
+            }
+        };
+
+        t1.start();
     }
 
     public static double round(double value, int places) {
