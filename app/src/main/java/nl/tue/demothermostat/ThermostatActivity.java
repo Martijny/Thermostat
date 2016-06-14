@@ -22,7 +22,8 @@ public class ThermostatActivity extends Activity {
     double vtemp = 5;
     double csbTemp;
     TextView temp;
-    TextView dDayTemp;
+    TextView currentTemp;
+    TextView currentTime;
     Button weekB;
     Button minusB;
     Button addB;
@@ -39,6 +40,8 @@ public class ThermostatActivity extends Activity {
         final CircularSeekBar seekbar = (CircularSeekBar) findViewById(R.id.circularSeekBar1);
         seekbar.setMax(250);
 
+        currentTemp = (TextView)findViewById(R.id.currentTemp);
+        currentTime = (TextView)findViewById(R.id.currentTime);
         temp = (TextView)findViewById(R.id.temp);
         temp.setText("" + vtemp);
         minusB = (Button)findViewById(R.id.minusB);
@@ -77,18 +80,16 @@ public class ThermostatActivity extends Activity {
         this.getActionBar().hide();
 
         Thread t = new Thread() {
-
             @Override
             public void run() {
                 try {
                     while (!isInterrupted()) {
-                        Thread.sleep(250);
+                        Thread.sleep(1000);
                         runOnUiThread(new Runnable() {
                             @Override
                             public void run() {
                                 try {
-                                    serverTime.setText(ST.getTime());
-                                    //dNightTemp.setText(ST.getData());
+                                    currentTime.setText("Time: "+ST.getTime());
                                 } catch (InterruptedException e) {
                                     e.printStackTrace();
                                 }
@@ -107,13 +108,12 @@ public class ThermostatActivity extends Activity {
             public void run() {
                 try {
                     while (!isInterrupted()) {
-                        Thread.sleep(250);
+                        Thread.sleep(1000);
                         runOnUiThread(new Runnable() {
                             @Override
                             public void run() {
                                 try {
-                                    dDayTemp.setText(ST.getData());
-                                    //dNightTemp.setText(ST.getData());
+                                    currentTemp.setText("Temperature: "+ST.getData());
                                 } catch (InterruptedException e) {
                                     e.printStackTrace();
                                 }
