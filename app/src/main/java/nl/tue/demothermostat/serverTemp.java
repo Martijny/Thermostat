@@ -12,9 +12,9 @@ public class serverTemp {
             @Override
             public void run() {
                 try {
-                    HeatingSystem.BASE_ADDRESS = "http://wwwis.win.tue.nl/2id40-ws/myThermo51";
+                    HeatingSystem.BASE_ADDRESS = "http://wwwis.win.tue.nl/2id40-ws/51";
                     HeatingSystem.WEEK_PROGRAM_ADDRESS = HeatingSystem.BASE_ADDRESS + "/weekProgram";
-                    currentTemperature = HeatingSystem.get("targetTemperature");
+                    currentTemperature = HeatingSystem.get("currentTemperature");
 //                    day = HeatingSystem.get("day");
 //                    time = HeatingSystem.get("time");
 //                    targetTemperature = HeatingSystem.get("targetTemperature");

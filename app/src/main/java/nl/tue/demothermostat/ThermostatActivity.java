@@ -62,19 +62,23 @@ public class ThermostatActivity extends Activity {
         minusB.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                isButton = true;
-                vtemp = round(Double.parseDouble(temp.getText().toString())-0.1,2);
-                temp.setText(""+vtemp);
-                seekbar.setProgress((int)(Double.parseDouble(temp.getText().toString())*10)-50);
+                if(Double.parseDouble(temp.getText().toString()) > 5) {
+                    isButton = true;
+                    vtemp = round(Double.parseDouble(temp.getText().toString()) - 0.1, 2);
+                    temp.setText("" + vtemp);
+                    seekbar.setProgress((int) (Double.parseDouble(temp.getText().toString()) * 10) - 50);
+                }
         }});
 
         addB.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                isButton = true;
-                vtemp = round(Double.parseDouble(temp.getText().toString())+0.1,2);
-                temp.setText(""+vtemp);
-                seekbar.setProgress((int) (Double.parseDouble(temp.getText().toString())*10)-50);
+                if(Double.parseDouble(temp.getText().toString()) < 30) {
+                    isButton = true;
+                    vtemp = round(Double.parseDouble(temp.getText().toString()) + 0.1, 2);
+                    temp.setText("" + vtemp);
+                    seekbar.setProgress((int) (Double.parseDouble(temp.getText().toString()) * 10) - 50);
+                }
             }});
 
         sTemp.setOnClickListener(new View.OnClickListener() {
