@@ -3,6 +3,7 @@ package nl.tue.demothermostat;
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
+import android.view.Window;
 import android.widget.Button;
 
 import java.lang.reflect.Array;
@@ -26,7 +27,6 @@ public class WeekOverview extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.week_overview);
-
 
         mondayB = (Button) findViewById(R.id.mondayB);
         tuesdayB = (Button) findViewById(R.id.tuesdayB);
