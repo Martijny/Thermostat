@@ -5,6 +5,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.view.Window;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -87,6 +88,7 @@ public class ThermostatActivity extends Activity {
 
                 try {
                     dDayTemp.setText(ST.getData());
+                    //dNightTemp.setText(ST.getData());
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
