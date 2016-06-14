@@ -22,15 +22,10 @@ public class ThermostatActivity extends Activity {
     double vtemp = 5;
     double csbTemp;
     TextView temp;
-    TextView setTemp;
     TextView dDayTemp;
-    TextView dNightTemp;
-    Button weekButton;
+    Button weekB;
     Button minusB;
     Button addB;
-    String setSwitch;
-    double dayTemp;
-    double nightTemp;
     serverTemp ST;
     boolean isButton;
 
@@ -40,24 +35,22 @@ public class ThermostatActivity extends Activity {
         setContentView(R.layout.activity_thermostat);
         ST = new serverTemp();
 
-        dDayTemp = (TextView)findViewById(R.id.dDayTemp);
-        dNightTemp = (TextView)findViewById(R.id.dNightTemp);
-        weekButton = (Button)findViewById(R.id.weekB);
+        weekB = (Button)findViewById(R.id.weekB);
         final CircularSeekBar seekbar = (CircularSeekBar) findViewById(R.id.circularSeekBar1);
         seekbar.setMax(250);
 
         temp = (TextView)findViewById(R.id.temp);
         temp.setText("" + vtemp);
-        Button sTemp = (Button)findViewById(R.id.sTemp);
         minusB = (Button)findViewById(R.id.minusB);
         addB = (Button)findViewById(R.id.addB);
 
-        weekButton.setOnClickListener(new View.OnClickListener() {
+        weekB.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(view.getContext(), WeekOverview.class);
                 startActivity(intent);
-        }});
+            }
+        });
 
         minusB.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -81,25 +74,25 @@ public class ThermostatActivity extends Activity {
                 }
             }});
 
-        sTemp.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                try {
-                    ST.setTemp(temp.getText().toString());
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-
-                try {
-                    dDayTemp.setText(ST.getData());
-                    //dNightTemp.setText(ST.getData());
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-            }
-        });
+//        sTemp.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                try {
+//                    ST.setTemp(temp.getText().toString());
+//                } catch (InterruptedException e) {
+//                    e.printStackTrace();
+//                }
+//
+//                try {
+//                    dDayTemp.setText(ST.getData());
+//                    //dNightTemp.setText(ST.getData());
+//                } catch (InterruptedException e) {
+//                    e.printStackTrace();
+//                }
+//            }
+//        });
         seekbar.setOnSeekBarChangeListener(new CircleSeekBarListener());
-
+        this.getActionBar().hide();
     }
 
     public static double round(double value, int places) {
