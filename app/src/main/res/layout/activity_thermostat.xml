@@ -50,7 +50,7 @@
         android:layout_centerVertical="true"
         android:layout_toStartOf="@+id/circularSeekBar1" />
 
-        </RelativeLayout>
+    </RelativeLayout>
 
     <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:id="@+id/relativeLayout"
@@ -93,20 +93,32 @@
             android:layout_alignParentBottom="true"
             android:layout_toEndOf="@+id/button" />
 
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="1dp"
+            android:background="@android:color/darker_gray"/>
+
     </RelativeLayout>
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="160dp">
     <Button
         android:layout_width="80dp"
         android:layout_height="80dp"
         android:id="@+id/dayB"
         android:background="@drawable/sun_icon"
         android:layout_marginRight="10dp"
-        android:layout_marginStart="99dp"
         android:layout_alignParentTop="true"
-        android:layout_alignParentStart="true" />
+        android:layout_toStartOf="@+id/view" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="80dp"
+            android:background="@android:color/darker_gray"
+            android:id="@+id/view"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true" />
 
     <Button
         android:layout_width="80dp"
@@ -115,7 +127,17 @@
         android:background="@drawable/moon_icon"
         android:layout_marginLeft="10dp"
         android:layout_alignParentTop="true"
-        android:layout_toEndOf="@+id/dayB" />
+        android:layout_toEndOf="@+id/view" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:id="@+id/selectedTemp"
+            android:layout_below="@+id/dayB"
+            android:layout_centerHorizontal="true"
+            android:textColor="#4A4A4A"
+            android:textSize="25dp" />
 
 
     </RelativeLayout>
@@ -123,7 +145,7 @@
     <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:id="@+id/relativeLayout2"
         android:layout_width="match_parent"
-        android:layout_height="100dp"
+        android:layout_height="130dp"
         android:layout_alignParentStart="true"
         android:layout_above="@+id/relativeLayout">
 
@@ -133,10 +155,11 @@
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:text="curTemp"
             android:id="@+id/currentTemp"
-            android:layout_alignParentTop="true"
-            android:layout_centerHorizontal="true"
-            android:textSize="40dp"
-            android:textColor="#4A4A4A" />
+            android:textSize="35dp"
+            android:textColor="#4A4A4A"
+            android:layout_below="@+id/setSelectedTemp"
+            android:layout_alignEnd="@+id/currentTime"
+            android:textAlignment="center" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -148,6 +171,14 @@
             android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true"
             android:textColor="#4A4A4A" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="SetSelectedTemp"
+            android:id="@+id/setSelectedTemp"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true" />
     </RelativeLayout>
 
 </RelativeLayout>
