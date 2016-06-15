@@ -16,16 +16,16 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity
             android:name=".WeekOverview"
-            android:screenOrientation="portrait">
-        </activity>
-
+            android:screenOrientation="portrait" />
+        <activity android:name=".TestingWS" />
         <activity
-            android:name=".TestingWS">
-        </activity>
-
+            android:name=".DailyOverview"
+            android:label="@string/title_activity_daily_overview" />
+        <activity
+            android:name=".AddingSchedule"
+            android:label="@string/title_activity_adding_schedule"></activity>
     </application>
 
 </manifest>

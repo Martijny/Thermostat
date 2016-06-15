@@ -7,88 +7,11 @@
     android:background="@android:color/background_light"
     android:weightSum="7">
 
-    <LinearLayout
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/linearLayout"
-        android:background="#ffffff">
-        <Button
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:text="M"
-            android:layout_alignParentTop="true"
-            android:layout_weight="1"
-            android:background = "@drawable/roundedbutton"
-            android:id="@+id/mondayB"
-            android:clickable="true"
-            android:enabled="true" />
-
-        <Button
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:text="T"
-            android:id="@+id/tuesdayB"
-            android:layout_toRightOf="@+id/mondayB"
-            android:layout_alignParentTop="true"
-            android:layout_weight="1"
-            android:background = "@drawable/roundedbutton"/>
-
-        <Button
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:text="W"
-            android:id="@+id/wednesdayB"
-            android:layout_alignParentTop="true"
-            android:layout_toRightOf="@+id/tuesdayB"
-            android:layout_weight="1"
-            android:background = "@drawable/roundedbutton"/>
-
-        <Button
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:text="T"
-            android:id="@+id/thursdayB"
-            android:layout_alignParentTop="true"
-            android:layout_toRightOf="@+id/wednesdayB"
-            android:layout_weight="1"
-            android:background = "@drawable/roundedbutton"/>
-
-        <Button
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:text="F"
-            android:id="@+id/fridayB"
-            android:layout_alignParentTop="true"
-            android:layout_toRightOf="@+id/thursdayB"
-            android:layout_weight="1"
-            android:background = "@drawable/roundedbutton"/>
-
-        <Button
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:text="S"
-            android:id="@+id/saturdayB"
-            android:layout_alignParentTop="true"
-            android:layout_toRightOf="@+id/fridayB"
-            android:layout_weight="1"
-            android:background = "@drawable/roundedbutton"/>
-
-        <Button
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:text="S"
-            android:id="@+id/sundayB"
-            android:layout_alignParentTop="true"
-            android:layout_toRightOf="@+id/saturdayB"
-            android:layout_weight="1"
-            android:background = "@drawable/roundedbutton"/>
-    </LinearLayout>
-
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Add Schedule"
-        android:id="@+id/button9"
+        android:id="@+id/addB"
         android:layout_alignParentBottom="true"
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true" />
@@ -97,8 +20,71 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Edit Schedule"
-        android:id="@+id/button10"
-        android:layout_above="@+id/button9"
+        android:id="@+id/editB"
+        android:layout_above="@+id/addB"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="MONDAY"
+        android:id="@+id/mondayB"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TUESDAY"
+        android:id="@+id/tuesdayB"
+        android:layout_below="@+id/mondayB"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="WEDNESDAY"
+        android:id="@+id/wednesdayB"
+        android:layout_below="@+id/tuesdayB"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="FRIDAY"
+        android:id="@+id/fridayB"
+        android:layout_below="@+id/thursdayB"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="THURSDAY"
+        android:id="@+id/thursdayB"
+        android:layout_below="@+id/wednesdayB"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="SATURDAY"
+        android:id="@+id/saturdayB"
+        android:layout_below="@+id/fridayB"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="SUNDAY"
+        android:id="@+id/sundayB"
+        android:layout_below="@+id/saturdayB"
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true" />
 

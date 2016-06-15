@@ -1,6 +1,7 @@
 package nl.tue.demothermostat;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
@@ -21,7 +22,7 @@ public class WeekOverview extends Activity {
     Button saturdayB;
     Button sundayB;
     Button[] buttonArray;
-
+    Button addB;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,7 +36,7 @@ public class WeekOverview extends Activity {
         fridayB = (Button) findViewById(R.id.fridayB);
         saturdayB = (Button) findViewById(R.id.saturdayB);
         sundayB = (Button) findViewById(R.id.sundayB);
-
+        addB = (Button) findViewById(R.id.addB);
         buttonArray = new Button[7];
         buttonArray[0] = mondayB;
         buttonArray[1] = tuesdayB;
@@ -49,84 +50,65 @@ public class WeekOverview extends Activity {
         mondayB.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                mondayB.setBackgroundResource(R.drawable.roundedbuttonclicked);
-                for (int i = 0; i < buttonArray.length; i++) {
-                    if (i != 0) {
-                        buttonArray[i].setBackgroundResource(R.drawable.roundedbutton);
-                    }
-                }
+                Intent intent = new Intent(view.getContext(),DailyOverview.class);
+                startActivity(intent);
             }
         });
 
         tuesdayB.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                tuesdayB.setBackgroundResource(R.drawable.roundedbuttonclicked);
-                for (int i = 0; i < buttonArray.length; i++) {
-                    if (i != 1) {
-                        buttonArray[i].setBackgroundResource(R.drawable.roundedbutton);
-                    }
-                }
+                Intent intent = new Intent(view.getContext(),DailyOverview.class);
+                startActivity(intent);
             }
         });
 
         wednesdayB.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                wednesdayB.setBackgroundResource(R.drawable.roundedbuttonclicked);
-                for (int i = 0; i < buttonArray.length; i++) {
-                    if (i != 2) {
-                        buttonArray[i].setBackgroundResource(R.drawable.roundedbutton);
-                    }
-                }
+                Intent intent = new Intent(view.getContext(),DailyOverview.class);
+                startActivity(intent);
             }
         });
 
         thursdayB.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                thursdayB.setBackgroundResource(R.drawable.roundedbuttonclicked);
-                for (int i = 0; i < buttonArray.length; i++) {
-                    if (i != 3) {
-                        buttonArray[i].setBackgroundResource(R.drawable.roundedbutton);
-                    }
-                }
+                Intent intent = new Intent(view.getContext(),DailyOverview.class);
+                startActivity(intent);
             }
         });
 
         fridayB.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                fridayB.setBackgroundResource(R.drawable.roundedbuttonclicked);
-                for (int i = 0; i < buttonArray.length; i++) {
-                    if (i != 4) {
-                        buttonArray[i].setBackgroundResource(R.drawable.roundedbutton);
-                    }
-                }
+                Intent intent = new Intent(view.getContext(),DailyOverview.class);
+                startActivity(intent);
             }
         });
 
         saturdayB.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                saturdayB.setBackgroundResource(R.drawable.roundedbuttonclicked);
-                for (int i = 0; i < buttonArray.length; i++) {
-                    if (i != 5) {
-                        buttonArray[i].setBackgroundResource(R.drawable.roundedbutton);
-                    }
-                }
+
+                Intent intent = new Intent(view.getContext(),DailyOverview.class);
+                startActivity(intent);
             }
         });
 
         sundayB.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                sundayB.setBackgroundResource(R.drawable.roundedbuttonclicked);
-                for (int i = 0; i < buttonArray.length; i++) {
-                    if (i != 6) {
-                        buttonArray[i].setBackgroundResource(R.drawable.roundedbutton);
-                    }
-                }
+                Intent intent = new Intent(view.getContext(),DailyOverview.class);
+                startActivity(intent);
+            }
+        });
+
+        addB.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(view.getContext(),AddingSchedule.class);
+                startActivity(intent);
             }
         });
     }
