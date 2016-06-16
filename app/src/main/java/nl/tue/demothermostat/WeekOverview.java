@@ -45,6 +45,8 @@ public class WeekOverview extends Activity {
         buttonArray[5] = saturdayB;
         buttonArray[6] = sundayB;
 
+        this.getActionBar().hide();
+
 
         mondayB.setOnClickListener(new View.OnClickListener() {
             @Override
