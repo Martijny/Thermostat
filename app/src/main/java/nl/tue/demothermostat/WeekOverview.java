@@ -1,6 +1,7 @@
 package nl.tue.demothermostat;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -10,6 +11,7 @@ import android.widget.Button;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import org.thermostatapp.util.CorruptWeekProgramException;
 import org.thermostatapp.util.HeatingSystem;
@@ -202,6 +204,13 @@ public class WeekOverview extends Activity {
                     }
                 };
                 s.start();
+
+                Context context = getApplicationContext();
+                CharSequence text = "New weekly schedule added to the server";
+                int duration = Toast.LENGTH_SHORT;
+
+                Toast toast = Toast.makeText(context, text, duration);
+                toast.show();
             }
         });
 

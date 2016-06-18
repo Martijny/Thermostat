@@ -71,7 +71,7 @@ public class settings extends Activity {
             }
         });
 
-        
+
 
         this.getActionBar().hide();
 
