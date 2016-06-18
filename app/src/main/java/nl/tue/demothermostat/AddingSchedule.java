@@ -71,27 +71,7 @@ public class AddingSchedule extends Activity implements AdapterView.OnItemSelect
 
 
                 String time1 = timeT.getText().toString();
-                if(WeekOverview.day.equals("Monday")){
-                    DataXD(DailyOverview.day1,time1);
-                }
-                else if(WeekOverview.day.equals("Tuesday")){
-                    DataXD(DailyOverview.day2,time1);
-                }
-                else if (WeekOverview.day.equals("Wednesday")){
-                    DataXD(DailyOverview.day3,time1);
-                }
-                else if(WeekOverview.day.equals("Thursday")){
-                    DataXD(DailyOverview.day4,time1);
-                }
-                else if(WeekOverview.day.equals("Friday")){
-                    DataXD(DailyOverview.day5,time1);
-                }
-                else if(WeekOverview.day.equals("Saturday")){
-                    DataXD(DailyOverview.day6,time1);
-                }
-                else if(WeekOverview.day.equals("Sunday")){
-                    DataXD(DailyOverview.day7,time1);
-                }
+                DailyOverview.arrayTime[DailyOverview.arraynr]=time1;
 
 
 

@@ -19,6 +19,7 @@ public class DailyOverview extends Activity {
     Button backB;
     String day;
     public static String[] arrayTime;
+    public static String[] arrayType;
     String[] arrayDay;
     public static int[] arrayNr;
     serverTemp ST;
@@ -49,41 +50,43 @@ public class DailyOverview extends Activity {
         ST = new serverTemp();
         wpg= new WeekProgram();
         day=WeekOverview.day;
-        if(day.equals("Monday")){
-            arrayTime=day1;
-        }
-        if(day.equals("Tuesday")){
-            arrayTime=day2;
-        }
-        if(day.equals("Wednesday")){
-            arrayTime=day3;
-        }
-        if(day.equals("Thursday")){
-            arrayTime=day4;
-        }
-        if(day.equals("Friday")){
-            arrayTime=day5;
-        }
-        if(day.equals("Saturday")){
-            arrayTime=day6;
-        }
-        if(day.equals("Sunday")){
-            arrayTime=day7;
-        }
-
-        ListAdapter myAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1,arrayTime);
+        ListAdapter myAdapter = new CustomAdapter(this,arrayTime);
         ListView dayList = (ListView)findViewById(R.id.listView);
         dayList.setAdapter(myAdapter);
+
+
+
 
         backB = (Button) findViewById(R.id.backB);
         backB.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                if(day.equals("Monday")){
+                    day1=arrayTime;
+                }
+                else if(day.equals("Tuesday")){
+                    day2=arrayTime;
+                }
+                else if(day.equals("Wednesday")){
+                    day3=arrayTime;
+                }
+                else if(day.equals("Thursday")){
+                    day4=arrayTime;
+                }
+                else if(day.equals("Friday")){
+                    day5=arrayTime;
+                }
+                else if(day.equals("Saturday")){
+                    day6=arrayTime;
+                }
+                else if(day.equals("Sunday")){
+                    day7=arrayTime;
+                }
                 Intent intent = new Intent(view.getContext(),WeekOverview.class);
                 startActivity(intent);
             }
         });
-        
+
 
 
         dayList.setOnItemClickListener(new AdapterView.OnItemClickListener() {

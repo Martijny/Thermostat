@@ -85,6 +85,9 @@ public class WeekOverview extends Activity {
                                            startActivity(intent);
 
                                     day="Monday";
+                                           DailyOverview.arrayTime=DailyOverview.day1;
+                                           DailyOverview.arrayType=DailyOverview.type1;
+
 
                                        }
                                    });
@@ -97,6 +100,8 @@ public class WeekOverview extends Activity {
 
 
                 day="Tuesday";
+                DailyOverview.arrayTime=DailyOverview.day2;
+                DailyOverview.arrayType=DailyOverview.type2;
 
             }
         });
@@ -107,7 +112,8 @@ public class WeekOverview extends Activity {
                 Intent intent = new Intent(view.getContext(),DailyOverview.class);
                 startActivity(intent);
                 day="Wednesday";
-
+                DailyOverview.arrayTime=DailyOverview.day3;
+                DailyOverview.arrayType=DailyOverview.type3;
 
 
             }
@@ -119,7 +125,8 @@ public class WeekOverview extends Activity {
                 Intent intent = new Intent(view.getContext(),DailyOverview.class);
                 startActivity(intent);
                 day="Thursday";
-
+                DailyOverview.arrayTime=DailyOverview.day4;
+                DailyOverview.arrayType=DailyOverview.type4;
 
             }
         });
@@ -130,7 +137,8 @@ public class WeekOverview extends Activity {
                 Intent intent = new Intent(view.getContext(),DailyOverview.class);
                 startActivity(intent);
                 day="Friday";
-
+                DailyOverview.arrayTime=DailyOverview.day5;
+                DailyOverview.arrayType=DailyOverview.type5;
 
 
             }
@@ -142,7 +150,8 @@ public class WeekOverview extends Activity {
                 Intent intent = new Intent(view.getContext(),DailyOverview.class);
                 startActivity(intent);
                 day="Saturday";
-
+                DailyOverview.arrayTime=DailyOverview.day6;
+                DailyOverview.arrayType=DailyOverview.type6;
 
             }
         });
@@ -153,7 +162,8 @@ public class WeekOverview extends Activity {
                 Intent intent = new Intent(view.getContext(),DailyOverview.class);
                 startActivity(intent);
                 day="Sunday";
-
+                DailyOverview.arrayTime=DailyOverview.day7;
+                DailyOverview.arrayType=DailyOverview.type7;
 
             }
         });
