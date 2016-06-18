@@ -8,21 +8,17 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="nl.tue.demothermostat.AddingSchedule"
-    android:background="@color/accent_material_dark">
-
-    <Spinner
-        android:id="@+id/planets_spinner"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content" />
+    android:background="@color/dim_foreground_material_dark">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="switch start"
+        android:text="SWITCH START"
         android:id="@+id/textView"
-        android:layout_below="@+id/planets_spinner"
+        android:textColor="@color/abc_input_method_navigation_guard"
+        android:layout_above="@+id/timeT"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="47dp" />
+        android:layout_marginBottom="100dp" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -30,55 +26,24 @@
         android:inputType="time"
         android:ems="10"
         android:id="@+id/timeT"
-        android:layout_below="@+id/textView"
-        android:layout_centerHorizontal="true" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="switch type"
-        android:id="@+id/textView2"
         android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true" />
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/switchT"
-        android:layout_below="@+id/textView2"
-        android:layout_alignStart="@+id/timeT"
-        android:layout_alignEnd="@+id/timeT" />
+        android:layout_centerHorizontal="true"
+        android:background="@color/ripple_material_dark" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="ADD SWITCH"
         android:id="@+id/addedB"
-        android:layout_alignParentBottom="true"
-        android:layout_toStartOf="@+id/textView3" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="switch nr"
-        android:id="@+id/textView3"
-        android:layout_below="@+id/switchT"
-        android:layout_centerHorizontal="true" />
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/numberT"
-        android:layout_below="@+id/textView3"
-        android:layout_centerHorizontal="true" />
+        android:layout_alignParentBottom="true" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="SET SCHEDULE"
+        android:text="BACK"
         android:id="@+id/setB"
-        android:layout_alignParentBottom="true"
-        android:layout_toEndOf="@+id/textView3" />
+        android:layout_alignTop="@+id/addedB"
+        android:layout_alignParentEnd="true" />
 
 
 </RelativeLayout>

@@ -11,6 +11,7 @@ public class serverTemp {
     String time;
     String weekProgramState;
     Switch switch1;
+    String weeklystate;
 
     public String getData() throws InterruptedException {
         Thread t = new Thread(new Runnable() {
@@ -231,6 +232,7 @@ public class serverTemp {
                     for (int i = 0; i < 10; i++) {
                         switch1 = wpg.data.get(days).get(i);
                         switches[i] = switch1.getTime();
+
                     }
 
                 } catch (Exception e) {
@@ -242,4 +244,97 @@ public class serverTemp {
         t.join();
         return switches;
     }
+
+    public int[] GetNumber(String day) throws InterruptedException {
+        final int[] switches = new int[10];
+        final String days = day;
+
+
+        Thread t = new Thread() {
+
+            public void run() {
+                try {
+                    WeekProgram wpg = HeatingSystem.getWeekProgram();
+                    for (int i = 0; i < 10; i++) {
+                        switch1 = wpg.data.get(days).get(i);
+                        switches[i] = switch1.getTime_Int();
+
+                    }
+
+                } catch (Exception e) {
+                    System.err.println("Error from getdata " + e);
+                }
+            }
+        };
+        t.start();
+        t.join();
+        return switches;
+    }
+    public String[] GetDayNight(String day) throws InterruptedException {
+        final String[] switches = new String[10];
+        final String days = day;
+
+
+        Thread t = new Thread() {
+
+            public void run() {
+                try {
+                    WeekProgram wpg = HeatingSystem.getWeekProgram();
+                    for (int i = 0; i < 10; i++) {
+                        switch1 = wpg.data.get(days).get(i);
+                        switches[i] = switch1.getType();
+
+                    }
+
+                } catch (Exception e) {
+                    System.err.println("Error from getdata " + e);
+                }
+            }
+        };
+        t.start();
+        t.join();
+        return switches;
+    }
+    public void setVMode() throws InterruptedException {
+
+        Thread t = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    weeklystate = HeatingSystem.get("weekProgramState");
+                    if (weeklystate.equals("on")) {
+                        weeklystate = "off";
+                        HeatingSystem.put("weekProgramState", weeklystate);
+                    }else{
+                        weeklystate = "on";
+                        HeatingSystem.put("weekProgramState", weeklystate);
+                    }
+
+                    weeklystate = HeatingSystem.get("weekProgramState");
+
+                } catch (Exception e) {
+                }
+            }
+        });
+        t.start();
+        t.join();
+    }
+    public String getVMODE() throws InterruptedException {
+        Thread t = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                     weeklystate = HeatingSystem.get("weekProgramState");
+
+                } catch (Exception e) {
+                    System.err.println("Error from getdata " + e);
+                }
+            }
+        });
+        t.start();
+        t.join();
+        return weeklystate;
+
+    }
+
 }
