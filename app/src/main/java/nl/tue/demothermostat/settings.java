@@ -19,8 +19,8 @@ import nl.tue.demothermostat.circularseekbar.CircularSeekBar;
 public class settings extends Activity {
 
     Button homeB;
-    ToggleButton vacToggle;
-    TextView setWeekinfo;
+    public static ToggleButton vacToggle;
+    public static TextView setWeekinfo;
     serverTemp ST;
 
 
@@ -58,7 +58,6 @@ public class settings extends Activity {
         vacToggle.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if (isChecked) {
-                    setWeekinfo.setText("Vacation Mode is ON");
                     Intent intent = new Intent(settings.this, VacationPopup.class);
                     startActivity(intent);
                 } else {
