@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.Window;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -25,6 +26,7 @@ import java.util.Arrays;
  */
 public class WeekOverview extends Activity {
 
+    public static String day;
     Button mondayB;
     Button tuesdayB;
     Button wednesdayB;
@@ -34,38 +36,7 @@ public class WeekOverview extends Activity {
     Button sundayB;
     Button[] buttonArray;
     Button addB;
-    private ListView scheduleList;
-    private ArrayAdapter<String> listAdapter ;
-    Switch switch0;
-    Switch switch1;
-    Switch switch2;
-    Switch switch3;
-    Switch switch4;
-    Switch switch5;
-    Switch switch6;
-    Switch switch7;
-    Switch switch8;
-    Switch switch9;
-    String night0;
-    String night1;
-    String night2;
-    String night3;
-    String night4;
-    String day5;
-    String day6;
-    String day7;
-    String day8;
-    String day9;
-    TextView textView4;
-    TextView textView5;
-    TextView textView6;
-    TextView textView7;
-    TextView textView8;
-    TextView textView9;
-    TextView textView10;
-    TextView textView11;
-    TextView textView12;
-    TextView textView13;
+
 
 
 
@@ -75,16 +46,9 @@ public class WeekOverview extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.week_overview);
-        textView4= (TextView)findViewById(R.id.textView4);
-        textView5= (TextView)findViewById(R.id.textView5);
-        textView6= (TextView)findViewById(R.id.textView6);
-        textView7= (TextView)findViewById(R.id.textView7);
-        textView8= (TextView)findViewById(R.id.textView8);
-        textView9= (TextView)findViewById(R.id.textView9);
-        textView10= (TextView)findViewById(R.id.textView10);
-        textView11= (TextView)findViewById(R.id.textView11);
-        textView12= (TextView)findViewById(R.id.textView12);
-        textView13= (TextView)findViewById(R.id.textView13);
+
+
+
 
 
         mondayB = (Button) findViewById(R.id.mondayB);
@@ -95,6 +59,7 @@ public class WeekOverview extends Activity {
         saturdayB = (Button) findViewById(R.id.saturdayB);
         sundayB = (Button) findViewById(R.id.sundayB);
         addB = (Button) findViewById(R.id.addB);
+
 
         buttonArray = new Button[7];
         buttonArray[0] = mondayB;
@@ -111,10 +76,12 @@ public class WeekOverview extends Activity {
 
         mondayB.setOnClickListener(new View.OnClickListener() {
                                        @Override
-                                       public void onClick(View view) {
+            public void onClick(View view) {
                                            Intent intent = new Intent(view.getContext(),DailyOverview.class);
                                            startActivity(intent);
-                                       }
+
+                                    day="Monday";
+            }
                                    });
 
         tuesdayB.setOnClickListener(new View.OnClickListener() {
@@ -123,6 +90,7 @@ public class WeekOverview extends Activity {
                 Intent intent = new Intent(view.getContext(),DailyOverview.class);
                 startActivity(intent);
 
+                day="Tuesday";
             }
         });
 
@@ -131,6 +99,7 @@ public class WeekOverview extends Activity {
             public void onClick(View view) {
                 Intent intent = new Intent(view.getContext(),DailyOverview.class);
                 startActivity(intent);
+                day="Wednesday";
 
             }
         });
@@ -140,6 +109,7 @@ public class WeekOverview extends Activity {
             public void onClick(View view) {
                 Intent intent = new Intent(view.getContext(),DailyOverview.class);
                 startActivity(intent);
+                day="Thursday";
 
             }
         });
@@ -149,6 +119,7 @@ public class WeekOverview extends Activity {
             public void onClick(View view) {
                 Intent intent = new Intent(view.getContext(),DailyOverview.class);
                 startActivity(intent);
+                day="Friday";
 
             }
         });
@@ -158,6 +129,7 @@ public class WeekOverview extends Activity {
             public void onClick(View view) {
                 Intent intent = new Intent(view.getContext(),DailyOverview.class);
                 startActivity(intent);
+                day="Saturday";
 
             }
         });
@@ -167,6 +139,7 @@ public class WeekOverview extends Activity {
             public void onClick(View view) {
                 Intent intent = new Intent(view.getContext(),DailyOverview.class);
                 startActivity(intent);
+                day="Sunday";
 
             }
         });
