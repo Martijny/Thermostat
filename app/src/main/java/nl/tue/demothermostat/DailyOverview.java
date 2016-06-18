@@ -12,16 +12,18 @@ import android.widget.ListView;
 
 public class DailyOverview extends Activity {
     Button backB;
-
+    String day;
     String[] array;
     serverTemp ST;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_daily_overview);
+        setTitle(WeekOverview.day);
         ST = new serverTemp();
+        day=WeekOverview.day;
         try {
-            array = ST.GetSchedule("Monday");
+            array = ST.GetSchedule(day);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
