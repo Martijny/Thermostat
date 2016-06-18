@@ -9,6 +9,7 @@ public class serverTemp {
     String dayTemp;
     String nightTemperature;
     String time;
+    String weekProgramState;
     Switch switch1;
 
     public String getData() throws InterruptedException {
@@ -34,6 +35,39 @@ public class serverTemp {
         t.start();
         t.join();
         return currentTemperature;
+    }
+
+    public String getWeekProgramState() throws InterruptedException {
+        Thread t = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    weekProgramState = HeatingSystem.get("weekProgramState");
+                } catch (Exception e) {
+                    System.err.println("Error from weekProgramState " + e);
+                }
+            }
+        });
+        t.start();
+        t.join();
+        return weekProgramState;
+    }
+
+    public void setWeekProgramState(String input) throws InterruptedException {
+        final String state;
+        state = input;
+        Thread t = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    HeatingSystem.put("weekProgramState", state);
+                } catch (Exception e) {
+                    System.err.println("Error from weekProgramState " + e);
+                }
+            }
+        });
+        t.start();
+        t.join();
     }
 
     public void setTemp(final String temp) throws InterruptedException {

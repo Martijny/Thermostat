@@ -21,12 +21,14 @@ public class settings extends Activity {
     Button homeB;
     ToggleButton vacToggle;
     TextView setWeekinfo;
+    serverTemp ST;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings);
-        serverTemp st = new serverTemp();
+        ST = new serverTemp();
 
         homeB = (Button) findViewById(R.id.homeB);
         vacToggle = (ToggleButton) findViewById(R.id.vacToggle);
@@ -40,24 +42,35 @@ public class settings extends Activity {
             }
         });
 
-        vacToggle.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if (isChecked) {
-                    Intent intent = new Intent(settings.this, VacationPopup.class);
-                    startActivity(intent);
-                } else {
-                    // The toggle is disabled
-                }
-            }
-        });
-
         try {
-            for (int i = 0; i < st.GetSchedule("Monday").length; i++) {
-                setWeekinfo.append(st.GetSchedule("Monday")[i]);
+            if(ST.getWeekProgramState().equals("off")){
+                vacToggle.setChecked(true);
+                setWeekinfo.setText("Vacation Mode is ON");
+            }else{
+                vacToggle.setChecked(false);
+                setWeekinfo.setText("Vacation Mode is OFF");
             }
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
+
+
+        vacToggle.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked) {
+                    setWeekinfo.setText("Vacation Mode is ON");
+                    Intent intent = new Intent(settings.this, VacationPopup.class);
+                    startActivity(intent);
+                } else {
+                    try {
+                        ST.setWeekProgramState("on");
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                    setWeekinfo.setText("Vacation Mode is OFF");
+                }
+            }
+        });
 
         this.getActionBar().hide();
 

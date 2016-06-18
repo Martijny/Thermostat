@@ -6,10 +6,13 @@ import android.app.Activity;
 import android.util.DisplayMetrics;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 
 public class VacationPopup extends Activity {
 
     Button setVacTempB;
+    EditText editTemp;
+    serverTemp ST = new serverTemp();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -18,6 +21,7 @@ public class VacationPopup extends Activity {
         this.getActionBar().hide();
 
         setVacTempB = (Button)findViewById(R.id.setVacTempB);
+        editTemp = (EditText)findViewById(R.id.editTemp);
 
         DisplayMetrics dm = new DisplayMetrics();
         getWindowManager().getDefaultDisplay().getMetrics(dm);
@@ -30,7 +34,19 @@ public class VacationPopup extends Activity {
         setVacTempB.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                if(Double.parseDouble(editTemp.getText().toString()) >= 5 && Double.parseDouble(editTemp.getText().toString()) <= 30){
+                    try {
+                        ST.setWeekProgramState("off");
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                    try {
+                        ST.setTemp(editTemp.getText().toString());
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                    finish();
+                }
             }
         });
     }

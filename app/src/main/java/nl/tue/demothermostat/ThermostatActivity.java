@@ -154,8 +154,16 @@ public class ThermostatActivity extends Activity {
             }
         });
 
-
-
+        overrideTempB.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                try {
+                    ST.setTemp(temp.getText().toString());
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
 
         seekbar.setOnSeekBarChangeListener(new CircleSeekBarListener());
 
@@ -209,7 +217,6 @@ public class ThermostatActivity extends Activity {
 
     public static double round(double value, int places) {
         if (places < 0) throw new IllegalArgumentException();
-
         long factor = (long) Math.pow(10, places);
         value = value * factor;
         long tmp = Math.round(value);

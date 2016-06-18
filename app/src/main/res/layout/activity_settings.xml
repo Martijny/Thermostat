@@ -95,6 +95,7 @@
         android:id="@+id/setWeekInfo"
         android:layout_below="@+id/relativeLayout3"
         android:layout_centerHorizontal="true"
-        android:textSize="30dp" />
+        android:textSize="30dp"
+        android:textColor="#4A4A4A" />
 
 </RelativeLayout>
