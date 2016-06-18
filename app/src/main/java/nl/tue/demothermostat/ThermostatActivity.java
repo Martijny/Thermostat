@@ -42,8 +42,6 @@ public class ThermostatActivity extends Activity {
         selectedTemp = (TextView) findViewById(R.id.selectedTemp);
         final CircularSeekBar seekbar = (CircularSeekBar) findViewById(R.id.circularSeekBar1);
         seekbar.setMax(250);
-        dayTemp = 25.0;
-        nightTemp = 14.0;
 
 
         currentTemp = (TextView) findViewById(R.id.currentTemp);
@@ -59,7 +57,12 @@ public class ThermostatActivity extends Activity {
         settingB = (Button) findViewById(R.id.settingB);
 
         this.getActionBar().hide();
-        selectedTemp.setText("Day Temperature: " + dayTemp);
+
+        try {
+            selectedTemp.setText("Day Temperature: " + ST.getDayTemp());
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
 
         weekB.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -91,11 +94,19 @@ public class ThermostatActivity extends Activity {
             @Override
             public void onClick(View view) {
                 if (getSelected() == dayB.getId()) {
-                    dayTemp = Double.parseDouble(temp.getText().toString());
-                    selectedTemp.setText("Day Temperature: " + dayTemp);
+                    try {
+                        ST.setDayTemp(temp.getText().toString());
+                        selectedTemp.setText("Day Temperature: " + ST.getDayTemp());
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
                 } else {
-                    nightTemp = Double.parseDouble(temp.getText().toString());
-                    selectedTemp.setText("Night Temperature: " + nightTemp);
+                    try {
+                        ST.setNightTemp(temp.getText().toString());
+                        selectedTemp.setText("Night Temperature: " + ST.getNightTemp());
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
                 }
             }
         });
@@ -113,7 +124,11 @@ public class ThermostatActivity extends Activity {
                 setSelected(dayB.getId());
                 dayB.setBackgroundResource(R.drawable.sun_icon);
                 nightB.setBackgroundResource(R.drawable.moon_icon_unselected);
-                selectedTemp.setText("Day Temperature: " + dayTemp);
+                try {
+                    selectedTemp.setText("Day Temperature: " + ST.getDayTemp());
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
             }
         });
 
@@ -123,7 +138,11 @@ public class ThermostatActivity extends Activity {
                 setSelected(nightB.getId());
                 nightB.setBackgroundResource(R.drawable.moon_icon);
                 dayB.setBackgroundResource(R.drawable.sun_icon_unselected);
-                selectedTemp.setText("Night Temperature: " + nightTemp);
+                try {
+                    selectedTemp.setText("Night Temperature: " + ST.getNightTemp());
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
             }
         });
 

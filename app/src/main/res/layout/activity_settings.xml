@@ -57,16 +57,10 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="60dp">
-    <Switch
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/switch1"
-        android:checked="false"
-        android:layout_centerVertical="true"
-        android:layout_toEndOf="@+id/vacModeButton" />
+        android:layout_height="60dp"
+        android:id="@+id/relativeLayout3">
 
-    <TextView
+        <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
@@ -81,8 +75,26 @@
             android:layout_width="fill_parent"
             android:layout_height="1dp"
             android:background="@android:color/darker_gray"
-            android:layout_below="@+id/vacModeButton" />
+            android:layout_below="@+id/vacModeButton"
+            android:id="@+id/view2" />
+
+        <ToggleButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/vacToggle"
+            android:layout_above="@+id/view2"
+            android:layout_toEndOf="@+id/vacModeButton"
+            android:checked="false" />
 
     </RelativeLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="New Text"
+        android:id="@+id/setWeekInfo"
+        android:layout_below="@+id/relativeLayout3"
+        android:layout_centerHorizontal="true"
+        android:textSize="30dp" />
 
 </RelativeLayout>

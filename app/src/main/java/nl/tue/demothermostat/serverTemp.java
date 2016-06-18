@@ -6,6 +6,8 @@ import org.thermostatapp.util.WeekProgram;
 
 public class serverTemp {
     String currentTemperature;
+    String dayTemp;
+    String nightTemperature;
     String time;
     Switch switch1;
 
@@ -42,24 +44,6 @@ public class serverTemp {
             public void run() {
                 try {
                     HeatingSystem.put("targetTemperature", stemp);
-                    /* Uncomment the following parts to see how to work with the properties of the week program */
-                    // Get the week program
-                    //WeekProgram wpg = HeatingSystem.getWeekProgram();
-
-                    // Set the week program to default
-                    //wpg.setDefault();
-
-                    //wpg.data.get("Monday").set(5, new Switch("day", true, "07:30"));
-                    //wpg.data.get("Monday").set(1, new Switch("night", true, "08:30"));
-                    //wpg.data.get("Monday").set(6, new Switch("day", true, "18:00"));
-                    //wpg.data.get("Monday").set(7, new Switch("day", true, "12:00"));
-                    //wpg.data.get("Monday").set(8, new Switch("day", true, "18:00"));
-                    //boolean duplicates = wpg.duplicates(wpg.data.get("Monday"));
-                    //System.out.println("Duplicates found " + duplicates);
-
-                    //Upload the updated program
-                    //HeatingSystem.setWeekProgram(wpg);
-
                 } catch (Exception e) {
                     System.err.println("Error from getdata " + e);
                 }
@@ -68,6 +52,74 @@ public class serverTemp {
         t.start();
         t.join();
     }
+    public void setDayTemp(final String temp) throws InterruptedException {
+        final String stemp;
+        stemp = temp;
+        Thread t = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    HeatingSystem.put("dayTemperature", stemp);
+                } catch (Exception e) {
+                    System.err.println("Error from getdata " + e);
+                }
+            }
+        });
+        t.start();
+        t.join();
+    }
+    public String getDayTemp() throws InterruptedException {
+        Thread t = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    HeatingSystem.BASE_ADDRESS = "http://wwwis.win.tue.nl/2id40-ws/51";
+                    HeatingSystem.WEEK_PROGRAM_ADDRESS = HeatingSystem.BASE_ADDRESS + "/weekProgram";
+                    dayTemp = HeatingSystem.get("dayTemperature");
+                } catch (Exception e) {
+                    System.err.println("Error from getdata " + e);
+                }
+            }
+        });
+        t.start();
+        t.join();
+        return dayTemp;
+    }
+    public void setNightTemp(final String temp) throws InterruptedException {
+        final String stemp;
+        stemp = temp;
+        Thread t = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    HeatingSystem.put("nightTemperature", stemp);
+                } catch (Exception e) {
+                    System.err.println("Error from getdata " + e);
+                }
+            }
+        });
+        t.start();
+        t.join();
+    }
+    public String getNightTemp() throws InterruptedException {
+        Thread t = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    HeatingSystem.BASE_ADDRESS = "http://wwwis.win.tue.nl/2id40-ws/51";
+                    HeatingSystem.WEEK_PROGRAM_ADDRESS = HeatingSystem.BASE_ADDRESS + "/weekProgram";
+                    nightTemperature = HeatingSystem.get("nightTemperature");
+                } catch (Exception e) {
+                    System.err.println("Error from getdata " + e);
+                }
+            }
+        });
+        t.start();
+        t.join();
+        return nightTemperature;
+    }
+
+
     public String getTime() throws InterruptedException {
         Thread t = new Thread(new Runnable() {
             @Override
