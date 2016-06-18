@@ -10,6 +10,7 @@ public class serverTemp {
     String nightTemperature;
     String time;
     Switch switch1;
+    String weeklystate;
 
     public String getData() throws InterruptedException {
         Thread t = new Thread(new Runnable() {
@@ -260,4 +261,46 @@ public class serverTemp {
         t.join();
         return switches;
     }
+    public void setVMode() throws InterruptedException {
+
+        Thread t = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    weeklystate = HeatingSystem.get("weekProgramState");
+                    if (weeklystate.equals("on")) {
+                        weeklystate = "off";
+                        HeatingSystem.put("weekProgramState", weeklystate);
+                    }else{
+                        weeklystate = "on";
+                        HeatingSystem.put("weekProgramState", weeklystate);
+                    }
+
+                    weeklystate = HeatingSystem.get("weekProgramState");
+
+                } catch (Exception e) {
+                }
+            }
+        });
+        t.start();
+        t.join();
+    }
+    public String getVMODE() throws InterruptedException {
+        Thread t = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                     weeklystate = HeatingSystem.get("weekProgramState");
+
+                } catch (Exception e) {
+                    System.err.println("Error from getdata " + e);
+                }
+            }
+        });
+        t.start();
+        t.join();
+        return weeklystate;
+
+    }
+
 }

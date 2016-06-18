@@ -20,44 +20,58 @@ public class settings extends Activity {
 
     Button homeB;
     ToggleButton vacToggle;
-    TextView setWeekinfo;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings);
-        serverTemp st = new serverTemp();
+        final serverTemp st = new serverTemp();
 
         homeB = (Button) findViewById(R.id.homeB);
         vacToggle = (ToggleButton) findViewById(R.id.vacToggle);
-        setWeekinfo = (TextView) findViewById(R.id.setWeekInfo);
 
-
-        homeB.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                finish();
+        try {
+            if(st.getVMODE().equals("off")){
+                vacToggle.setChecked(true);
             }
-        });
+            else vacToggle.setChecked(false);
+
+
+
+            homeB.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    finish();
+                }
+            });
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
 
         vacToggle.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if (isChecked) {
+                    try {
+                        st.setVMode();
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
                     Intent intent = new Intent(settings.this, VacationPopup.class);
                     startActivity(intent);
                 } else {
+                    try {
+                        st.setVMode();
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
                     // The toggle is disabled
                 }
             }
         });
 
-        try {
-            for (int i = 0; i < st.GetSchedule("Monday").length; i++) {
-                setWeekinfo.append(st.GetSchedule("Monday")[i]);
-            }
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+        
 
         this.getActionBar().hide();
 
