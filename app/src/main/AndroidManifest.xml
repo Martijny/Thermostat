@@ -12,6 +12,7 @@
         <activity android:name=".ThermostatActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -24,7 +25,10 @@
             android:label="@string/title_activity_daily_overview" />
         <activity
             android:name=".AddingSchedule"
-            android:label="@string/title_activity_adding_schedule"></activity>
+            android:label="@string/title_activity_adding_schedule" />
+        <activity
+            android:name=".settings"
+            android:label="@string/title_activity_settings"></activity>
     </application>
 
 </manifest>

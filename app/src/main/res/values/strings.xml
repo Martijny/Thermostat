@@ -3,4 +3,5 @@
     <string name="title_activity_daily_overview">DailyOverview</string>
     <string name="title_activity_add_schedule">AddSchedule</string>
     <string name="title_activity_adding_schedule">AddingSchedule</string>
+    <string name="title_activity_settings">settings</string>
 </resources>

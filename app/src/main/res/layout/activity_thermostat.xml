@@ -86,10 +86,10 @@
             android:layout_toEndOf="@+id/weekB" />
 
         <Button
-            android:id="@+id/button2"
+            android:id="@+id/settingB"
             android:layout_width="95dp"
             android:layout_height="90dp"
-            android:background="@drawable/settings"
+            android:background="@drawable/gear_icon_unselected"
             android:layout_alignParentBottom="true"
             android:layout_toEndOf="@+id/button" />
 
@@ -124,7 +124,7 @@
         android:layout_width="80dp"
         android:layout_height="80dp"
         android:id="@+id/nightB"
-        android:background="@drawable/moon_icon"
+        android:background="@drawable/moon_icon_unselected"
         android:layout_marginLeft="10dp"
         android:layout_alignParentTop="true"
         android:layout_toEndOf="@+id/view" />
@@ -139,15 +139,14 @@
             android:textColor="#4A4A4A"
             android:textSize="25dp" />
 
-        <TextView
+        <Button
+            style="?android:attr/buttonStyleSmall"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:id="@+id/timeUntilSwitch"
+            android:text="Set Switch"
+            android:id="@+id/setSwitchB"
             android:layout_below="@+id/selectedTemp"
-            android:layout_centerHorizontal="true"
-            android:text="Next Switch:"
-            android:textColor="#4A4A4A" />
+            android:layout_centerHorizontal="true" />
 
 
     </RelativeLayout>
@@ -170,7 +169,7 @@
             android:layout_above="@+id/currentTime"
             android:layout_alignParentStart="true"
             android:textAlignment="gravity"
-            android:layout_below="@+id/setSelectedTemp"
+            android:layout_below="@+id/overrideTempB"
             android:gravity="top|center_horizontal" />
 
         <TextView
@@ -189,8 +188,8 @@
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="SetSelectedTemp"
-            android:id="@+id/setSelectedTemp"
+            android:text="Override current temperature"
+            android:id="@+id/overrideTempB"
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true" />
     </RelativeLayout>

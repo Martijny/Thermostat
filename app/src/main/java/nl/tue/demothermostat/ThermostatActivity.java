@@ -1,21 +1,11 @@
 package nl.tue.demothermostat;
 
-import nl.tue.demothermostat.circularseekbar.CircularSeekBar.OnCircularSeekBarChangeListener;
-
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.view.Window;
 import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.TextView;
-
-import nl.tue.demothermostat.serverTemp;
-
-import org.thermostatapp.util.HeatingSystem;
-import org.thermostatapp.util.Switch;
-import org.thermostatapp.util.WeekProgram;
 
 import nl.tue.demothermostat.circularseekbar.CircularSeekBar;
 
@@ -33,9 +23,11 @@ public class ThermostatActivity extends Activity {
     Button weekB;
     Button minusB;
     Button addB;
+    Button settingB;
     Button dayB;
     Button nightB;
-    Button setSelectedTemp;
+    Button overrideTempB;
+    Button setSwitchB;
     serverTemp ST;
     boolean isButton;
 
@@ -52,18 +44,21 @@ public class ThermostatActivity extends Activity {
         dayTemp = 25.0;
         nightTemp = 14.0;
 
+
         currentTemp = (TextView) findViewById(R.id.currentTemp);
         currentTime = (TextView) findViewById(R.id.currentTime);
         temp = (TextView) findViewById(R.id.temp);
         temp.setText("" + vtemp);
         minusB = (Button) findViewById(R.id.minusB);
-        setSelectedTemp = (Button) findViewById(R.id.setSelectedTemp);
+        setSwitchB = (Button) findViewById(R.id.setSwitchB);
+        overrideTempB = (Button) findViewById(R.id.overrideTempB);
         addB = (Button) findViewById(R.id.addB);
         dayB = (Button) findViewById(R.id.dayB);
         nightB = (Button) findViewById(R.id.nightB);
-        System.out.println(dayB.toString());
+        settingB = (Button) findViewById(R.id.settingB);
 
         this.getActionBar().hide();
+        selectedTemp.setText("Day Temperature: " + dayTemp);
 
         weekB.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -91,7 +86,7 @@ public class ThermostatActivity extends Activity {
             }
         });
 
-        setSelectedTemp.setOnClickListener(new View.OnClickListener() {
+        setSwitchB.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 if (getSelected() == dayB.getId()) {
@@ -104,10 +99,19 @@ public class ThermostatActivity extends Activity {
             }
         });
 
+        overrideTempB.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
+
         dayB.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 setSelected(dayB.getId());
+                dayB.setBackgroundResource(R.drawable.sun_icon);
+                nightB.setBackgroundResource(R.drawable.moon_icon_unselected);
                 selectedTemp.setText("Day Temperature: " + dayTemp);
             }
         });
@@ -116,9 +120,21 @@ public class ThermostatActivity extends Activity {
             @Override
             public void onClick(View view) {
                 setSelected(nightB.getId());
+                nightB.setBackgroundResource(R.drawable.moon_icon);
+                dayB.setBackgroundResource(R.drawable.sun_icon_unselected);
                 selectedTemp.setText("Night Temperature: " + nightTemp);
             }
         });
+
+        settingB.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(view.getContext(), settings.class);
+                startActivity(intent);
+            }
+        });
+
+
 
 
         seekbar.setOnSeekBarChangeListener(new CircleSeekBarListener());
