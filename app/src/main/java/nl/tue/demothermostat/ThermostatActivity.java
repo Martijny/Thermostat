@@ -31,6 +31,7 @@ public class ThermostatActivity extends Activity {
     serverTemp ST;
     boolean isButton;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

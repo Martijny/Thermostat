@@ -22,6 +22,30 @@ public class AddingSchedule extends Activity implements AdapterView.OnItemSelect
     EditText switchT;
     EditText numberT;
     WeekProgram wpg;
+    Switch switch0;
+    Switch switch1;
+    Switch switch2;
+    Switch switch3;
+    Switch switch4;
+    Switch switch5;
+    Switch switch6;
+    Switch switch7;
+    Switch switch8;
+    Switch switch9;
+    String s0;
+    String s1;
+    String s2;
+    String s3;
+    String s4;
+    String s5;
+    String s6;
+    String s7;
+    String s8;
+    String s9;
+
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         ST = new serverTemp();
@@ -66,26 +90,9 @@ public class AddingSchedule extends Activity implements AdapterView.OnItemSelect
                     public void run() {
                         try {
 
-
-
-                            //HeatingSystem.put("targetTemperature", stemp);
-                    /* Uncomment the following parts to see how to work with the properties of the week program */
-                            // Get the week program
-                            //WeekProgram wpg1 = HeatingSystem.getWeekProgram();
-
-                            // Set the week program to default
-                            //wpg1.setDefault();
-
-                            //wpg1.data.get("Monday").set(6, new Switch("day", true, "09:30"));
-                            //wpg1.data.get(sday).set(snumber, new Switch(smode, true, stime));
-                            //wpg1.data.get("Monday").set(8, new Switch("day", true, "12:00"));
-                            //wpg.data.get("Monday").set(7, new Switch("day", true, "12:00"));
-                            //wpg.data.get("Monday").set(8, new Switch("day", true, "18:00"));
-                            //boolean duplicates = wpg.duplicates(wpg.data.get("Monday"));
-
-                            //System.out.println("Duplicates found " + duplicates);
                             wpg.data.get(day).set(num2, new Switch(a_switch, true, time1));
-
+                            boolean duplicates = wpg.duplicates(wpg.data.get(day));
+                            System.out.println("Duplicates found " + duplicates);
 
                             //Upload the updated program
                             HeatingSystem.setWeekProgram(wpg);
@@ -105,8 +112,10 @@ public class AddingSchedule extends Activity implements AdapterView.OnItemSelect
 
         });
         setB.setOnClickListener(new View.OnClickListener() {
+
             @Override
             public void onClick(View view) {
+
 
             }
         });

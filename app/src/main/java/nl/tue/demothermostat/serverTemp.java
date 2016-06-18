@@ -7,6 +7,7 @@ import org.thermostatapp.util.WeekProgram;
 public class serverTemp {
     String currentTemperature;
     String time;
+    Switch switch1;
 
     public String getData() throws InterruptedException {
         Thread t = new Thread(new Runnable() {
@@ -91,9 +92,10 @@ public class serverTemp {
         t.join();
         return time;
     }
-    public void setWeekProgram(WeekProgram wpg) throws InterruptedException {
-
-        WeekProgram wpg1;
+    public void getWeekProgram(final WeekProgram wpg, final String day) throws InterruptedException {
+        final String sday;
+        sday=day;
+        final WeekProgram wpg1;
         wpg1=wpg;
 
         Thread t = new Thread(new Runnable() {
@@ -103,10 +105,10 @@ public class serverTemp {
                     //HeatingSystem.put("targetTemperature", stemp);
                     /* Uncomment the following parts to see how to work with the properties of the week program */
                     // Get the week program
-                    WeekProgram wpg1 = HeatingSystem.getWeekProgram();
+                    HeatingSystem.getWeekProgram().data.get(sday);
 
                     // Set the week program to default
-                    wpg1.setDefault();
+                    //wpg1.setDefault();
 
                    //wpg1.data.get("Monday").set(6, new Switch("day", true, "09:30"));
                     //wpg1.data.get(sday).set(snumber, new Switch(smode, true, stime));
@@ -118,7 +120,7 @@ public class serverTemp {
                     //System.out.println("Duplicates found " + duplicates);
 
                     //Upload the updated program
-                    HeatingSystem.setWeekProgram(wpg1);
+                    //HeatingSystem.setWeekProgram(wpg1);
 
                 } catch (Exception e) {
                     System.err.println("Error from getdata " + e);
@@ -127,5 +129,31 @@ public class serverTemp {
         });
         t.start();
         t.join();
+    }
+
+
+    public String[] GetSchedule(String day) throws InterruptedException {
+        final String[] switches = new String[10];
+        final String days = day;
+
+
+        Thread t = new Thread() {
+
+            public void run() {
+                try {
+                    WeekProgram wpg = HeatingSystem.getWeekProgram();
+                    for (int i = 0; i < 10; i++) {
+                        switch1 = wpg.data.get(days).get(i);
+                        switches[i] = switch1.getTime();
+                    }
+
+                } catch (Exception e) {
+                    System.err.println("Error from getdata " + e);
+                }
+            }
+        };
+        t.start();
+        t.join();
+        return switches;
     }
 }
