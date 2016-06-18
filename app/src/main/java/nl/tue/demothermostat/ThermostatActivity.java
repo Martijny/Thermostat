@@ -67,6 +67,25 @@ public class ThermostatActivity extends Activity {
         weekB.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                try {
+                    DailyOverview.day1 = ST.GetSchedule("Monday");
+                    DailyOverview.day2 = ST.GetSchedule("Tuesday");
+                    DailyOverview.day3 = ST.GetSchedule("Wednesday");
+                    DailyOverview.day4= ST.GetSchedule("Thursday");
+                    DailyOverview.day5 = ST.GetSchedule("Friday");
+                    DailyOverview.day6 = ST.GetSchedule("Saturday");
+                    DailyOverview.day7 = ST.GetSchedule("Sunday");
+                    DailyOverview.type1 = ST.GetDayNight("Monday");
+                    DailyOverview.type2 = ST.GetDayNight("Tuesday");
+                    DailyOverview.type3= ST.GetDayNight("Wednesday");
+                    DailyOverview.type5 = ST.GetDayNight("Friday");
+                    DailyOverview.type6 = ST.GetDayNight("Saturday");
+                    DailyOverview.type7 = ST.GetDayNight("Sunday");
+                    DailyOverview.type4 = ST.GetDayNight("Thursday");
+
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
                 Intent intent = new Intent(view.getContext(), WeekOverview.class);
                 startActivity(intent);
             }

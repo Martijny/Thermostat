@@ -6,7 +6,7 @@ android {
 
     defaultConfig {
         applicationId "nl.tue.demothermostat"
-        minSdkVersion 22
+        minSdkVersion 20
         targetSdkVersion 22
         versionCode 1
         versionName "1.0"
