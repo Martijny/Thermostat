@@ -189,9 +189,7 @@ public class serverTemp {
     }
     
     
-    public void getWeekProgram(final WeekProgram wpg, final String day) throws InterruptedException {
-        final String sday;
-        sday=day;
+    public void getWeekProgram(final WeekProgram wpg) throws InterruptedException {
         final WeekProgram wpg1;
         wpg1=wpg;
 
