@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:padding="10dp"
     android:background="#4A4A4A"
     tools:context="nl.tue.demothermostat.HelpPopUp">
 
@@ -10,11 +11,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Edit or set a new switch out of 10 possible day/night switches by clicking on them"
+        android:text="To set a value, click one of the switches with the desired temperature (Either Day or Night). \n \nA popup will appear asking you what time you want the switch to be set (Must be in xx:xx format) \n\nThe popup also gives the possibilty of toggling the switch ON or OFF"
         android:id="@+id/textView14"
         android:layout_alignParentTop="true"
         android:layout_alignParentStart="true"
-        android:textSize="25dp"
+        android:textSize="20dp"
         android:textColor="#ffffff" />
 
     <Button
@@ -22,9 +23,8 @@
         android:layout_height="wrap_content"
         android:text="OK"
         android:id="@+id/button4"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="95dp"
-        android:textColor="@color/abc_primary_text_disable_only_material_dark" />
+        android:textColor="@color/abc_primary_text_disable_only_material_dark"
+        android:layout_below="@+id/textView14"
+        android:layout_centerHorizontal="true" />
 
 </RelativeLayout>
