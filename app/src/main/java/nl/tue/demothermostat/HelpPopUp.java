@@ -34,7 +34,7 @@ public class HelpPopUp extends Activity {
         int width = dm.widthPixels;
         int height = dm.heightPixels;
 
-        getWindow().setLayout((int) (width * .95), (int) (height * .50));
+        getWindow().setLayout((int) (width * .95), (int) (height * .70));
 
         this.getActionBar().hide();
         ok.setOnClickListener(new View.OnClickListener() {

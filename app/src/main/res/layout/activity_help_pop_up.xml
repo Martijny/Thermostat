@@ -11,7 +11,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="To set a value, click one of the switches with the desired temperature (Either Day or Night). \n \nA popup will appear asking you what time you want the switch to be set (Must be in xx:xx format) \n\nThe popup also gives the possibilty of toggling the switch ON or OFF"
+        android:text="To set a value, click one of the switches with the desired temperature (Either Day or Night). \n \nA popup will appear asking you what time you want the switch to be set (Must be in xx:xx format) \n\nThe popup also gives the possibilty of toggling the switch ON or OFF \n\nIMPORTANT: after you added all the desired switches, remember to press the update schedule button in the week overview"
         android:id="@+id/textView14"
         android:layout_alignParentTop="true"
         android:layout_alignParentStart="true"
