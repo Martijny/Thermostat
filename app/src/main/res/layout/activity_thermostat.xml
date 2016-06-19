@@ -178,7 +178,7 @@
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:text="curTime"
             android:id="@+id/currentTime"
-            android:textSize="40dp"
+            android:textSize="25dp"
             android:textColor="#4A4A4A"
             android:layout_alignParentBottom="true"
             android:layout_alignParentStart="true"

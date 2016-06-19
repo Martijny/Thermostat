@@ -9,6 +9,7 @@ public class serverTemp {
     String dayTemp;
     String nightTemperature;
     String time;
+    String day;
     String weekProgramState;
     Switch switch1;
     String weeklystate;
@@ -90,7 +91,7 @@ public class serverTemp {
     public void setDayTemp(final String temp) throws InterruptedException {
         final String stemp;
         stemp = temp;
-        Thread t = new Thread(new Runnable() {
+        Thread st = new Thread(new Runnable() {
             @Override
             public void run() {
                 try {
@@ -100,8 +101,8 @@ public class serverTemp {
                 }
             }
         });
-        t.start();
-        t.join();
+        st.start();
+        st.join();
     }
     public String getDayTemp() throws InterruptedException {
         Thread t = new Thread(new Runnable() {
@@ -160,16 +161,7 @@ public class serverTemp {
             @Override
             public void run() {
                 try {
-                    HeatingSystem.BASE_ADDRESS = "http://wwwis.win.tue.nl/2id40-ws/51";
-                    HeatingSystem.WEEK_PROGRAM_ADDRESS = HeatingSystem.BASE_ADDRESS + "/weekProgram";
-//                    currentTemperature = HeatingSystem.get("currentTemperature");
-//                    day = HeatingSystem.get("day");
                     time = HeatingSystem.get("time");
-//                    targetTemperature = HeatingSystem.get("targetTemperature");
-//                    dayTemperature = HeatingSystem.get("dayTemperature");
-//                    nightTemperature = HeatingSystem.get("nightTemperature");
-//                    weekProgramState = HeatingSystem.get("weekProgramState");
-
                 } catch (Exception e) {
                     System.err.println("Error from getdata " + e);
                 }
@@ -179,6 +171,22 @@ public class serverTemp {
         t.join();
         return time;
     }
+    public String getDay() throws InterruptedException {
+        Thread t = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    day = HeatingSystem.get("day");
+                } catch (Exception e) {
+                    System.err.println("Error from getdata " + e);
+                }
+            }
+        });
+        t.start();
+        t.join();
+        return day;
+    }
+
     public void getWeekProgram(final WeekProgram wpg, final String day) throws InterruptedException {
         final String sday;
         sday=day;
