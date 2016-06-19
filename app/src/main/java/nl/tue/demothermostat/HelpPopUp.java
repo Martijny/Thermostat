@@ -2,6 +2,7 @@ package nl.tue.demothermostat;
 
 import android.app.Dialog;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.app.Activity;
 import android.util.DisplayMetrics;
@@ -11,6 +12,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 public class HelpPopUp extends Activity {
+    Button ok;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,6 +22,7 @@ public class HelpPopUp extends Activity {
         final Context context = getApplicationContext();
         final CharSequence text = "Use a value between 5 and 30";
         final int duration = Toast.LENGTH_SHORT;
+        ok = (Button)findViewById(R.id.button4);
 
 
         Dialog dialog = new Dialog(context);
@@ -34,6 +37,12 @@ public class HelpPopUp extends Activity {
         getWindow().setLayout((int) (width * .95), (int) (height * .50));
 
         this.getActionBar().hide();
+        ok.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
     }
 
 }

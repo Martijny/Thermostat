@@ -10,11 +10,21 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Help text"
+        android:text="Edit or set a new switch out of 10 possible day/night switches by clicking on them"
         android:id="@+id/textView14"
         android:layout_alignParentTop="true"
         android:layout_alignParentStart="true"
         android:textSize="25dp"
         android:textColor="#ffffff" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="OK"
+        android:id="@+id/button4"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="95dp"
+        android:textColor="@color/abc_primary_text_disable_only_material_dark" />
 
 </RelativeLayout>
