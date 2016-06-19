@@ -54,9 +54,6 @@ public class DailyOverview extends Activity {
         ListView dayList = (ListView)findViewById(R.id.listView);
         dayList.setAdapter(myAdapter);
 
-
-
-
         backB = (Button) findViewById(R.id.backB);
         backB.setOnClickListener(new View.OnClickListener() {
             @Override

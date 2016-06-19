@@ -19,6 +19,7 @@ import nl.tue.demothermostat.circularseekbar.CircularSeekBar;
 public class settings extends Activity {
 
     Button homeB;
+    Button weekB;
     public static ToggleButton vacToggle;
     public static TextView setWeekinfo;
     serverTemp ST;
@@ -31,6 +32,7 @@ public class settings extends Activity {
         ST = new serverTemp();
 
         homeB = (Button) findViewById(R.id.homeB);
+        weekB = (Button) findViewById(R.id.weekB);
         vacToggle = (ToggleButton) findViewById(R.id.vacToggle);
         setWeekinfo = (TextView) findViewById(R.id.setWeekInfo);
 
@@ -38,7 +40,16 @@ public class settings extends Activity {
         homeB.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                finish();
+                Intent intent = new Intent(view.getContext(), ThermostatActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        weekB.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(view.getContext(), WeekOverview.class);
+                startActivity(intent);
             }
         });
 

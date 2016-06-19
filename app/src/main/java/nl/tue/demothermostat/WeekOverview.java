@@ -39,22 +39,19 @@ public class WeekOverview extends Activity {
     Button[] buttonArray;
     Button addB;
     Button backB;
+    Button homeB;
+    Button settingsB;
     serverTemp ST;
     WeekProgram wpg;
-
-
-
-
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.week_overview);
-        ST= new serverTemp();
+        ST = new serverTemp();
 
         wpg = new WeekProgram();
-
 
 
         mondayB = (Button) findViewById(R.id.mondayB);
@@ -66,6 +63,8 @@ public class WeekOverview extends Activity {
         sundayB = (Button) findViewById(R.id.sundayB);
         addB = (Button) findViewById(R.id.addB);
         backB = (Button) findViewById(R.id.backB);
+        homeB = (Button) findViewById(R.id.homeB);
+        settingsB = (Button) findViewById(R.id.settingsB);
 
         buttonArray = new Button[7];
         buttonArray[0] = mondayB;
@@ -79,31 +78,30 @@ public class WeekOverview extends Activity {
         this.getActionBar().hide();
 
 
-
         mondayB.setOnClickListener(new View.OnClickListener() {
-                                       @Override
+            @Override
             public void onClick(View view) {
-                                           Intent intent = new Intent(view.getContext(),DailyOverview.class);
-                                           startActivity(intent);
+                Intent intent = new Intent(view.getContext(), DailyOverview.class);
+                startActivity(intent);
 
-                                    day="Monday";
-                                           DailyOverview.arrayTime=DailyOverview.day1;
-                                           DailyOverview.arrayType=DailyOverview.type1;
+                day = "Monday";
+                DailyOverview.arrayTime = DailyOverview.day1;
+                DailyOverview.arrayType = DailyOverview.type1;
 
 
-                                       }
-                                   });
+            }
+        });
 
         tuesdayB.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(view.getContext(),DailyOverview.class);
+                Intent intent = new Intent(view.getContext(), DailyOverview.class);
                 startActivity(intent);
 
 
-                day="Tuesday";
-                DailyOverview.arrayTime=DailyOverview.day2;
-                DailyOverview.arrayType=DailyOverview.type2;
+                day = "Tuesday";
+                DailyOverview.arrayTime = DailyOverview.day2;
+                DailyOverview.arrayType = DailyOverview.type2;
 
             }
         });
@@ -111,11 +109,11 @@ public class WeekOverview extends Activity {
         wednesdayB.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(view.getContext(),DailyOverview.class);
+                Intent intent = new Intent(view.getContext(), DailyOverview.class);
                 startActivity(intent);
-                day="Wednesday";
-                DailyOverview.arrayTime=DailyOverview.day3;
-                DailyOverview.arrayType=DailyOverview.type3;
+                day = "Wednesday";
+                DailyOverview.arrayTime = DailyOverview.day3;
+                DailyOverview.arrayType = DailyOverview.type3;
 
 
             }
@@ -124,11 +122,11 @@ public class WeekOverview extends Activity {
         thursdayB.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(view.getContext(),DailyOverview.class);
+                Intent intent = new Intent(view.getContext(), DailyOverview.class);
                 startActivity(intent);
-                day="Thursday";
-                DailyOverview.arrayTime=DailyOverview.day4;
-                DailyOverview.arrayType=DailyOverview.type4;
+                day = "Thursday";
+                DailyOverview.arrayTime = DailyOverview.day4;
+                DailyOverview.arrayType = DailyOverview.type4;
 
             }
         });
@@ -136,11 +134,11 @@ public class WeekOverview extends Activity {
         fridayB.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(view.getContext(),DailyOverview.class);
+                Intent intent = new Intent(view.getContext(), DailyOverview.class);
                 startActivity(intent);
-                day="Friday";
-                DailyOverview.arrayTime=DailyOverview.day5;
-                DailyOverview.arrayType=DailyOverview.type5;
+                day = "Friday";
+                DailyOverview.arrayTime = DailyOverview.day5;
+                DailyOverview.arrayType = DailyOverview.type5;
 
 
             }
@@ -149,11 +147,11 @@ public class WeekOverview extends Activity {
         saturdayB.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(view.getContext(),DailyOverview.class);
+                Intent intent = new Intent(view.getContext(), DailyOverview.class);
                 startActivity(intent);
-                day="Saturday";
-                DailyOverview.arrayTime=DailyOverview.day6;
-                DailyOverview.arrayType=DailyOverview.type6;
+                day = "Saturday";
+                DailyOverview.arrayTime = DailyOverview.day6;
+                DailyOverview.arrayType = DailyOverview.type6;
 
             }
         });
@@ -161,11 +159,11 @@ public class WeekOverview extends Activity {
         sundayB.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(view.getContext(),DailyOverview.class);
+                Intent intent = new Intent(view.getContext(), DailyOverview.class);
                 startActivity(intent);
-                day="Sunday";
-                DailyOverview.arrayTime=DailyOverview.day7;
-                DailyOverview.arrayType=DailyOverview.type7;
+                day = "Sunday";
+                DailyOverview.arrayTime = DailyOverview.day7;
+                DailyOverview.arrayType = DailyOverview.type7;
 
             }
         });
@@ -180,7 +178,7 @@ public class WeekOverview extends Activity {
                         try {
                             wpg = HeatingSystem.getWeekProgram();
                             // Set the week program to default
-                            for(int i = 0; i<10; i++){
+                            for (int i = 0; i < 10; i++) {
                                 wpg.data.get("Monday").set(i, new Switch(DailyOverview.type1[i], true, DailyOverview.day1[i]));
                                 wpg.data.get("Tuesday").set(i, new Switch(DailyOverview.type2[i], true, DailyOverview.day2[i]));
                                 wpg.data.get("Wednesday").set(i, new Switch(DailyOverview.type3[i], true, DailyOverview.day3[i]));
@@ -193,7 +191,7 @@ public class WeekOverview extends Activity {
 
 //
                             boolean duplicates = wpg.duplicates(wpg.data.get("Monday"));
-                            System.out.println("Duplicates found "+duplicates);
+                            System.out.println("Duplicates found " + duplicates);
 
                             //Upload the updated program
                             HeatingSystem.setWeekProgram(wpg);
@@ -214,16 +212,22 @@ public class WeekOverview extends Activity {
             }
         });
 
-        backB.setOnClickListener(new View.OnClickListener() {
+        homeB.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(view.getContext(),ThermostatActivity.class);
+                Intent intent = new Intent(view.getContext(), ThermostatActivity.class);
                 startActivity(intent);
+            }
+        });
 
+        settingsB.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(view.getContext(), settings.class);
+                startActivity(intent);
             }
         });
     }
-
 
 
 }

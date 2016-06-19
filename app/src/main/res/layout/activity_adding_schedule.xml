@@ -8,17 +8,17 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="nl.tue.demothermostat.AddingSchedule"
-    android:background="@color/dim_foreground_material_dark">
+    android:background="#F2F2F2">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="SWITCH START"
+        android:text="When do you want to start the switch?"
         android:id="@+id/textView"
         android:textColor="@color/abc_input_method_navigation_guard"
-        android:layout_above="@+id/timeT"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="100dp" />
+        android:textSize="20dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -26,16 +26,21 @@
         android:inputType="time"
         android:ems="10"
         android:id="@+id/timeT"
-        android:layout_centerVertical="true"
+        android:textColor="#4A4A4A"
+        android:background="@color/ripple_material_dark"
+        android:layout_below="@+id/textView"
         android:layout_centerHorizontal="true"
-        android:background="@color/ripple_material_dark" />
+        android:hint="Enter Start Time"
+        android:textColorHint="#4A4A4A"
+        android:textAlignment="center" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="ADD SWITCH"
         android:id="@+id/addedB"
-        android:layout_alignParentBottom="true" />
+        android:layout_below="@+id/timeT"
+        android:layout_alignStart="@+id/textView" />
 
     <Button
         android:layout_width="wrap_content"
