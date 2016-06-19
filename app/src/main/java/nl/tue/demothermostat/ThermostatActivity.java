@@ -204,7 +204,7 @@ public class ThermostatActivity extends Activity {
                             @Override
                             public void run() {
                                 try {
-                                    currentTime.setText("Time: " + ST.getTime());
+                                    currentTime.setText("Time: " + ST.getTime() + " ("+ST.getDay()+")");
                                 } catch (InterruptedException e) {
                                     e.printStackTrace();
                                 }

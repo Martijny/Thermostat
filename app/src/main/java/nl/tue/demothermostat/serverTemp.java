@@ -9,6 +9,7 @@ public class serverTemp {
     String dayTemp;
     String nightTemperature;
     String time;
+    String day;
     String weekProgramState;
     Switch switch1;
     String weeklystate;
@@ -162,14 +163,7 @@ public class serverTemp {
                 try {
                     HeatingSystem.BASE_ADDRESS = "http://wwwis.win.tue.nl/2id40-ws/51";
                     HeatingSystem.WEEK_PROGRAM_ADDRESS = HeatingSystem.BASE_ADDRESS + "/weekProgram";
-//                    currentTemperature = HeatingSystem.get("currentTemperature");
-//                    day = HeatingSystem.get("day");
                     time = HeatingSystem.get("time");
-//                    targetTemperature = HeatingSystem.get("targetTemperature");
-//                    dayTemperature = HeatingSystem.get("dayTemperature");
-//                    nightTemperature = HeatingSystem.get("nightTemperature");
-//                    weekProgramState = HeatingSystem.get("weekProgramState");
-
                 } catch (Exception e) {
                     System.err.println("Error from getdata " + e);
                 }
@@ -178,6 +172,23 @@ public class serverTemp {
         t.start();
         t.join();
         return time;
+    }
+    public String getDay() throws InterruptedException {
+        Thread t = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    HeatingSystem.BASE_ADDRESS = "http://wwwis.win.tue.nl/2id40-ws/51";
+                    HeatingSystem.WEEK_PROGRAM_ADDRESS = HeatingSystem.BASE_ADDRESS + "/weekProgram";
+                    day = HeatingSystem.get("day");
+                } catch (Exception e) {
+                    System.err.println("Error from getdata " + e);
+                }
+            }
+        });
+        t.start();
+        t.join();
+        return day;
     }
     public void getWeekProgram(final WeekProgram wpg) throws InterruptedException {
 
