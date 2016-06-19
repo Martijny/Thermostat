@@ -94,6 +94,27 @@ public class settings extends Activity {
             public void onClick(View view) {
                 try {
                     ST.getWeekProgram(wpg);
+                    DailyOverview.day1 = ST.GetSchedule("Monday");
+                    DailyOverview.day2 = ST.GetSchedule("Tuesday");
+                    DailyOverview.day3 = ST.GetSchedule("Wednesday");
+                    DailyOverview.day4= ST.GetSchedule("Thursday");
+                    DailyOverview.day5 = ST.GetSchedule("Friday");
+                    DailyOverview.day6 = ST.GetSchedule("Saturday");
+                    DailyOverview.day7 = ST.GetSchedule("Sunday");
+                    DailyOverview.type1 = ST.GetDayNight("Monday");
+                    DailyOverview.type2 = ST.GetDayNight("Tuesday");
+                    DailyOverview.type3= ST.GetDayNight("Wednesday");
+                    DailyOverview.type5 = ST.GetDayNight("Friday");
+                    DailyOverview.type6 = ST.GetDayNight("Saturday");
+                    DailyOverview.type7 = ST.GetDayNight("Sunday");
+                    DailyOverview.type4 = ST.GetDayNight("Thursday");
+                    DailyOverview.offon1 = ST.GetOnOff("Monday");
+                    DailyOverview.offon2 = ST.GetOnOff("Tuesday");
+                    DailyOverview.offon3= ST.GetOnOff("Wednesday");
+                    DailyOverview.offon5 = ST.GetOnOff("Friday");
+                    DailyOverview.offon6 = ST.GetOnOff("Saturday");
+                    DailyOverview.offon7 = ST.GetOnOff("Sunday");
+                    DailyOverview.offon4 = ST.GetOnOff("Thursday");
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
