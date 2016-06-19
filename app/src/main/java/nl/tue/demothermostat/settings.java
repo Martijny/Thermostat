@@ -1,5 +1,6 @@
 package nl.tue.demothermostat;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.app.Activity;
@@ -9,9 +10,12 @@ import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.PopupWindow;
 import android.widget.TextView;
+import android.widget.Toast;
 import android.widget.ToggleButton;
 
+import org.thermostatapp.util.HeatingSystem;
 import org.thermostatapp.util.Switch;
+import org.thermostatapp.util.WeekProgram;
 import org.w3c.dom.Text;
 
 import nl.tue.demothermostat.circularseekbar.CircularSeekBar;
@@ -23,6 +27,8 @@ public class settings extends Activity {
     public static ToggleButton vacToggle;
     public static TextView setWeekinfo;
     serverTemp ST;
+    Button reset;
+    WeekProgram wpg;
 
 
     @Override
@@ -30,9 +36,11 @@ public class settings extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings);
         ST = new serverTemp();
+        wpg = new WeekProgram();
 
         homeB = (Button) findViewById(R.id.homeB);
         weekB = (Button) findViewById(R.id.weekB);
+        reset = (Button) findViewById(R.id.button2);
         vacToggle = (ToggleButton) findViewById(R.id.vacToggle);
         setWeekinfo = (TextView) findViewById(R.id.setWeekInfo);
 
@@ -79,6 +87,22 @@ public class settings extends Activity {
                     }
                     setWeekinfo.setText("Vacation Mode is OFF");
                 }
+            }
+        });
+        reset.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                try {
+                    ST.getWeekProgram(wpg);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                Context context = getApplicationContext();
+                CharSequence text = "Weekly program reset";
+                int duration = Toast.LENGTH_SHORT;
+
+                Toast toast = Toast.makeText(context, text, duration);
+                toast.show();
             }
         });
 
