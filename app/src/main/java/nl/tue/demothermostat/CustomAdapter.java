@@ -52,8 +52,6 @@ class CustomAdapter extends ArrayAdapter<String> {
             if(string1==true){
                 textOn.setTextColor(Color.GREEN);
                 textOn.setText("ON");
-
-
             }
             else{
                 textOn.setTextColor(Color.RED);
