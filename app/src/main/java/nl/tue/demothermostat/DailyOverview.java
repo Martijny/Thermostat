@@ -1,14 +1,19 @@
 package nl.tue.demothermostat;
 
+import android.app.ActionBar;
 import android.content.Intent;
 import android.os.Bundle;
 import android.app.Activity;
+import android.view.LayoutInflater;
+import android.view.MenuInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListAdapter;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import org.thermostatapp.util.HeatingSystem;
 import org.thermostatapp.util.Switch;
@@ -48,13 +53,33 @@ public class DailyOverview extends Activity {
     public static boolean[] offon6;
     public static boolean[] offon7;
     public static boolean[] arrayMode;
+    Button help;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        LayoutInflater inflater = (LayoutInflater) getActionBar()
+                .getThemedContext().getSystemService(LAYOUT_INFLATER_SERVICE);
+        View customActionBarView = inflater.inflate(R.layout.actionbar_custom, null);
+
+
+
+        ActionBar actionBar = getActionBar();
+        actionBar.setDisplayOptions(
+                ActionBar.DISPLAY_SHOW_CUSTOM,
+                ActionBar.DISPLAY_SHOW_CUSTOM | ActionBar.DISPLAY_SHOW_HOME
+                        | ActionBar.DISPLAY_SHOW_TITLE);
+        actionBar.setCustomView(customActionBarView,
+                new ActionBar.LayoutParams(
+                        ViewGroup.LayoutParams.MATCH_PARENT,
+                        ViewGroup.LayoutParams.MATCH_PARENT));
         setContentView(R.layout.activity_daily_overview);
-        setTitle(WeekOverview.day);
+
+
+
+
+        help = (Button)findViewById(R.id.button3);
         ST = new serverTemp();
         wpg= new WeekProgram();
         day=WeekOverview.day;
@@ -108,6 +133,13 @@ public class DailyOverview extends Activity {
                 Intent intent = new Intent(view.getContext(),AddingSchedule.class);
                 startActivity(intent);
 
+            }
+        });
+        help.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(view.getContext(),HelpPopUp.class);
+                startActivity(intent);
             }
         });
 
