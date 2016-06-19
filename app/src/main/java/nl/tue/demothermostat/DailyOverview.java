@@ -59,11 +59,8 @@ public class DailyOverview extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        LayoutInflater inflater = (LayoutInflater) getActionBar()
-                .getThemedContext().getSystemService(LAYOUT_INFLATER_SERVICE);
+        LayoutInflater inflater = (LayoutInflater) getActionBar().getThemedContext().getSystemService(LAYOUT_INFLATER_SERVICE);
         View customActionBarView = inflater.inflate(R.layout.actionbar_custom, null);
-
-
 
         ActionBar actionBar = getActionBar();
         actionBar.setDisplayOptions(

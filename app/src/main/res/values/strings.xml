@@ -5,4 +5,5 @@
     <string name="title_activity_adding_schedule">AddingSchedule</string>
     <string name="title_activity_settings">settings</string>
     <string name="title_activity_vacation_popup">VacationPopup</string>
+    <string name="title_activity_help_pop_up">HelpPopUp</string>
 </resources>
