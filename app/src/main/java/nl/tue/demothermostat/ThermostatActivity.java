@@ -82,6 +82,14 @@ public class ThermostatActivity extends Activity {
                     DailyOverview.type6 = ST.GetDayNight("Saturday");
                     DailyOverview.type7 = ST.GetDayNight("Sunday");
                     DailyOverview.type4 = ST.GetDayNight("Thursday");
+                    DailyOverview.offon1 = ST.GetOnOff("Monday");
+                    DailyOverview.offon2 = ST.GetOnOff("Tuesday");
+                    DailyOverview.offon3= ST.GetOnOff("Wednesday");
+                    DailyOverview.offon5 = ST.GetOnOff("Friday");
+                    DailyOverview.offon6 = ST.GetOnOff("Saturday");
+                    DailyOverview.offon7 = ST.GetOnOff("Sunday");
+                    DailyOverview.offon4 = ST.GetOnOff("Thursday");
+
 
                 } catch (InterruptedException e) {
                     e.printStackTrace();

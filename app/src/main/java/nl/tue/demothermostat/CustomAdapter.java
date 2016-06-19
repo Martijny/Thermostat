@@ -2,6 +2,7 @@ package nl.tue.demothermostat;
 
 import android.app.Activity;
 import android.content.Context;
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -34,8 +35,10 @@ class CustomAdapter extends ArrayAdapter<String> {
         String singleFoodItem = getItem(position);
         TextView myText =(TextView) customView.findViewById(R.id.myText);
         ImageView imageView = (ImageView) customView.findViewById(R.id.imageView);
+        TextView textOn = (TextView)customView.findViewById(R.id.textView2);
         myText.setText(singleFoodItem);
         String string = DailyOverview.arrayType[position];
+        boolean string1 = DailyOverview.arrayMode[position];
 
 
         for (int i =0; i<10; i++){
@@ -45,7 +48,18 @@ class CustomAdapter extends ArrayAdapter<String> {
                 imageView.setImageResource(R.drawable.moon_icon);
            }
         }
+        for (int i=0;i<10;i++){
+            if(string1==true){
+                textOn.setTextColor(Color.GREEN);
+                textOn.setText("ON");
 
+
+            }
+            else{
+                textOn.setTextColor(Color.RED);
+                textOn.setText("OFF");
+            }
+        }
         return customView;
     }
 }

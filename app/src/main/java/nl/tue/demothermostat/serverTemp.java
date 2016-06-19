@@ -336,5 +336,30 @@ public class serverTemp {
         return weeklystate;
 
     }
+    public boolean[] GetOnOff(String day) throws InterruptedException {
+        final boolean[] switches = new boolean[10];
+        final String days = day;
+
+
+        Thread t = new Thread() {
+
+            public void run() {
+                try {
+                    WeekProgram wpg = HeatingSystem.getWeekProgram();
+                    for (int i = 0; i < 10; i++) {
+                        switch1 = wpg.data.get(days).get(i);
+                        switches[i] = switch1.getState();
+
+                    }
+
+                } catch (Exception e) {
+                    System.err.println("Error from getdata " + e);
+                }
+            }
+        };
+        t.start();
+        t.join();
+        return switches;
+    }
 
 }

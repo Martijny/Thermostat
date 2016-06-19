@@ -87,7 +87,7 @@ public class WeekOverview extends Activity {
                 day = "Monday";
                 DailyOverview.arrayTime = DailyOverview.day1;
                 DailyOverview.arrayType = DailyOverview.type1;
-
+                DailyOverview.arrayMode = DailyOverview.offon1;
 
             }
         });
@@ -102,7 +102,7 @@ public class WeekOverview extends Activity {
                 day = "Tuesday";
                 DailyOverview.arrayTime = DailyOverview.day2;
                 DailyOverview.arrayType = DailyOverview.type2;
-
+                DailyOverview.arrayMode = DailyOverview.offon2;
             }
         });
 
@@ -114,7 +114,7 @@ public class WeekOverview extends Activity {
                 day = "Wednesday";
                 DailyOverview.arrayTime = DailyOverview.day3;
                 DailyOverview.arrayType = DailyOverview.type3;
-
+                DailyOverview.arrayMode = DailyOverview.offon3;
 
             }
         });
@@ -127,7 +127,7 @@ public class WeekOverview extends Activity {
                 day = "Thursday";
                 DailyOverview.arrayTime = DailyOverview.day4;
                 DailyOverview.arrayType = DailyOverview.type4;
-
+                DailyOverview.arrayMode = DailyOverview.offon4;
             }
         });
 
@@ -139,7 +139,7 @@ public class WeekOverview extends Activity {
                 day = "Friday";
                 DailyOverview.arrayTime = DailyOverview.day5;
                 DailyOverview.arrayType = DailyOverview.type5;
-
+                DailyOverview.arrayMode = DailyOverview.offon5;
 
             }
         });
@@ -152,7 +152,7 @@ public class WeekOverview extends Activity {
                 day = "Saturday";
                 DailyOverview.arrayTime = DailyOverview.day6;
                 DailyOverview.arrayType = DailyOverview.type6;
-
+                DailyOverview.arrayMode = DailyOverview.offon6;
             }
         });
 
@@ -164,7 +164,7 @@ public class WeekOverview extends Activity {
                 day = "Sunday";
                 DailyOverview.arrayTime = DailyOverview.day7;
                 DailyOverview.arrayType = DailyOverview.type7;
-
+                DailyOverview.arrayMode = DailyOverview.offon7;
             }
         });
 
@@ -179,22 +179,56 @@ public class WeekOverview extends Activity {
                             wpg = HeatingSystem.getWeekProgram();
                             // Set the week program to default
                             for (int i = 0; i < 10; i++) {
-                                wpg.data.get("Monday").set(i, new Switch(DailyOverview.type1[i], true, DailyOverview.day1[i]));
-                                wpg.data.get("Tuesday").set(i, new Switch(DailyOverview.type2[i], true, DailyOverview.day2[i]));
-                                wpg.data.get("Wednesday").set(i, new Switch(DailyOverview.type3[i], true, DailyOverview.day3[i]));
-                                wpg.data.get("Thursday").set(i, new Switch(DailyOverview.type4[i], true, DailyOverview.day4[i]));
-                                wpg.data.get("Friday").set(i, new Switch(DailyOverview.type5[i], true, DailyOverview.day5[i]));
-                                wpg.data.get("Saturday").set(i, new Switch(DailyOverview.type6[i], true, DailyOverview.day6[i]));
-                                wpg.data.get("Sunday").set(i, new Switch(DailyOverview.type7[i], true, DailyOverview.day7[i]));
+                                wpg.data.get("Monday").set(i, new Switch(DailyOverview.type1[i], DailyOverview.offon1[i], DailyOverview.day1[i]));
+                                wpg.data.get("Tuesday").set(i, new Switch(DailyOverview.type2[i], DailyOverview.offon2[i], DailyOverview.day2[i]));
+                                wpg.data.get("Wednesday").set(i, new Switch(DailyOverview.type3[i], DailyOverview.offon3[i], DailyOverview.day3[i]));
+                                wpg.data.get("Thursday").set(i, new Switch(DailyOverview.type4[i], DailyOverview.offon4[i], DailyOverview.day4[i]));
+                                wpg.data.get("Friday").set(i, new Switch(DailyOverview.type5[i], DailyOverview.offon5[i], DailyOverview.day5[i]));
+                                wpg.data.get("Saturday").set(i, new Switch(DailyOverview.type6[i], DailyOverview.offon6[i], DailyOverview.day6[i]));
+                                wpg.data.get("Sunday").set(i, new Switch(DailyOverview.type7[i], DailyOverview.offon7[i], DailyOverview.day7[i]));
 
                             }
 
 //
                             boolean duplicates = wpg.duplicates(wpg.data.get("Monday"));
                             System.out.println("Duplicates found " + duplicates);
+                             duplicates = wpg.duplicates(wpg.data.get("Tuesday"));
+                            System.out.println("Duplicates found " + duplicates);
+                            duplicates = wpg.duplicates(wpg.data.get("Wednesday"));
+                            System.out.println("Duplicates found " + duplicates);
+                            duplicates = wpg.duplicates(wpg.data.get("Thursday"));
+                            System.out.println("Duplicates found " + duplicates);
+                            duplicates = wpg.duplicates(wpg.data.get("Friday"));
+                            System.out.println("Duplicates found " + duplicates);
+                            duplicates = wpg.duplicates(wpg.data.get("Saturday"));
+                            System.out.println("Duplicates found " + duplicates);
+                            duplicates = wpg.duplicates(wpg.data.get("Sunday"));
+                            System.out.println("Duplicates found " + duplicates);
 
                             //Upload the updated program
                             HeatingSystem.setWeekProgram(wpg);
+                            DailyOverview.day1 = ST.GetSchedule("Monday");
+                            DailyOverview.day2 = ST.GetSchedule("Tuesday");
+                            DailyOverview.day3 = ST.GetSchedule("Wednesday");
+                            DailyOverview.day4= ST.GetSchedule("Thursday");
+                            DailyOverview.day5 = ST.GetSchedule("Friday");
+                            DailyOverview.day6 = ST.GetSchedule("Saturday");
+                            DailyOverview.day7 = ST.GetSchedule("Sunday");
+                            DailyOverview.type1 = ST.GetDayNight("Monday");
+                            DailyOverview.type2 = ST.GetDayNight("Tuesday");
+                            DailyOverview.type3= ST.GetDayNight("Wednesday");
+                            DailyOverview.type5 = ST.GetDayNight("Friday");
+                            DailyOverview.type6 = ST.GetDayNight("Saturday");
+                            DailyOverview.type7 = ST.GetDayNight("Sunday");
+                            DailyOverview.type4 = ST.GetDayNight("Thursday");
+                            DailyOverview.offon1 = ST.GetOnOff("Monday");
+                            DailyOverview.offon2 = ST.GetOnOff("Tuesday");
+                            DailyOverview.offon3= ST.GetOnOff("Wednesday");
+                            DailyOverview.offon5 = ST.GetOnOff("Friday");
+                            DailyOverview.offon6 = ST.GetOnOff("Saturday");
+                            DailyOverview.offon7 = ST.GetOnOff("Sunday");
+                            DailyOverview.offon4 = ST.GetOnOff("Thursday");
+
 
                         } catch (Exception e) {
                             System.err.print("Errorrrrrrr");

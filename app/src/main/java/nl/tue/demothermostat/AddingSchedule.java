@@ -12,6 +12,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
+import android.widget.ToggleButton;
 
 import org.thermostatapp.util.HeatingSystem;
 import org.thermostatapp.util.Switch;
@@ -48,6 +49,7 @@ public class AddingSchedule extends Activity implements AdapterView.OnItemSelect
     String s7;
     String s8;
     String s9;
+    ToggleButton toggleB;
 
 
     @Override
@@ -71,9 +73,15 @@ public class AddingSchedule extends Activity implements AdapterView.OnItemSelect
         int height = dm.heightPixels;
 
         getWindow().setLayout((int)(width*.95),(int)(height*.40));
+        toggleB = (ToggleButton)findViewById(R.id.toggleB);
+        if(DailyOverview.arrayMode[DailyOverview.arraynr]==false){
+            toggleB.setChecked(false);
+        }
+        else toggleB.setChecked(true);
 
         addedB = (Button) findViewById(R.id.addedB);
         setB = (Button) findViewById(R.id.setB);
+        timeT.setText(DailyOverview.arrayTime[DailyOverview.arraynr]);
         addedB.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -81,6 +89,7 @@ public class AddingSchedule extends Activity implements AdapterView.OnItemSelect
                 if(timeT.getText().toString().matches("\\d{2}:\\d{2}")) {
                     String time1 = timeT.getText().toString();
                     DailyOverview.arrayTime[DailyOverview.arraynr] = time1;
+                    DailyOverview.arrayMode[DailyOverview.arraynr] = toggleB.isChecked();
 
                     Intent intent = new Intent(view.getContext(), DailyOverview.class);
                     startActivity(intent);
@@ -100,6 +109,9 @@ public class AddingSchedule extends Activity implements AdapterView.OnItemSelect
                 startActivity(intent);
             }
         });
+
+
+
     }
 
 

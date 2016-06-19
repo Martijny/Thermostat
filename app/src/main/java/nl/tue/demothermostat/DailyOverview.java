@@ -40,6 +40,14 @@ public class DailyOverview extends Activity {
     public static String[] type5;
     public static String[] type6;
     public static String[] type7;
+    public static boolean[] offon1;
+    public static boolean[] offon2;
+    public static boolean[] offon3;
+    public static boolean[] offon4;
+    public static boolean[] offon5;
+    public static boolean[] offon6;
+    public static boolean[] offon7;
+    public static boolean[] arrayMode;
 
 
     @Override
@@ -60,24 +68,31 @@ public class DailyOverview extends Activity {
             public void onClick(View view) {
                 if(day.equals("Monday")){
                     day1=arrayTime;
+                    offon1=arrayMode;
                 }
                 else if(day.equals("Tuesday")){
                     day2=arrayTime;
+                    offon2=arrayMode;
                 }
                 else if(day.equals("Wednesday")){
                     day3=arrayTime;
+                    offon3=arrayMode;
                 }
                 else if(day.equals("Thursday")){
                     day4=arrayTime;
+                    offon4=arrayMode;
                 }
                 else if(day.equals("Friday")){
                     day5=arrayTime;
+                    offon5=arrayMode;
                 }
                 else if(day.equals("Saturday")){
                     day6=arrayTime;
+                    offon6=arrayMode;
                 }
                 else if(day.equals("Sunday")){
                     day7=arrayTime;
+                    offon7=arrayMode;
                 }
                 Intent intent = new Intent(view.getContext(),WeekOverview.class);
                 startActivity(intent);

@@ -10,7 +10,7 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Add Schedule"
+        android:text="Update weekly schedule"
         android:id="@+id/addB"
         android:layout_above="@+id/relativeLayout"
         android:layout_alignParentStart="true"
