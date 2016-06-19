@@ -23,7 +23,6 @@
         <activity
             android:name=".WeekOverview"
             android:screenOrientation="portrait" />
-        <activity android:name=".TestingWS" />
         <activity
             android:name=".DailyOverview"
             android:label="@string/title_activity_daily_overview" />
